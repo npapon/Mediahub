@@ -13,8 +13,7 @@ import constantes.Vues;
 @WebServlet( "/Connexion" )
 public class Connexion extends HttpServlet {
 
-    String                     vue = Vues.CONNEXION;
-    public static final String VUE = "/WEB-INF/connexion.jsp";
+    private String VUE = Vues.CONNEXION;
 
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
