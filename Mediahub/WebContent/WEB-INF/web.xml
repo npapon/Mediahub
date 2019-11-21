@@ -15,7 +15,15 @@
     <servlet-name>Connexion</servlet-name>
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
- 
+    <servlet>
+    <description>Home</description>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>servlets.Home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
     <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
@@ -28,5 +36,4 @@
       <param-value>false</param-value>
     </init-param>
   </filter>
- 
 </web-app>
