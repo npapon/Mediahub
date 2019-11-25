@@ -8,24 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import constantes.MessagesErreur;
 import constantes.Parametres;
 
-public final class ConnexionForm {
+public class ConnexionForm {
 
     List<String> erreurs = new ArrayList<String>();
 
-    public Utilisateur inscrireUtilisateur( HttpServletRequest request, String login, String motDePasse ) {
+    public Utilisateur connecterUtilisateur( HttpServletRequest request ) {
 
         Utilisateur utilisateur = new Utilisateur();
-        login = request.getParameter( Parametres.CONSTANTE_PARAMETRE_LOGIN ).trim();
+        String login = request.getParameter( Parametres.CONSTANTE_PARAMETRE_LOGIN ).trim();
         verifierLogin( login );
         utilisateur.setLogin( login );
-        motDePasse = request.getParameter( Parametres.CONSTANTE_PARAMETRE_MOTDEPASSE ).trim();
-        verifierMotdepasse( motDePasse );
-        utilisateur.setMotDePasse( motDePasse );
+        String motdepasse = request.getParameter( Parametres.CONSTANTE_PARAMETRE_MOTDEPASSE ).trim();
+        verifierMotdepasse( motdepasse );
+        utilisateur.setMotDePasse( motdepasse );
 
         return utilisateur;
     }
 
-    private void verifierLogin( String login ) {
+    public void verifierLogin( String login ) {
         if ( login.length() <= 3 ) {
             try {
                 throw new Exception( MessagesErreur.CONSTANTE_ERREUR_LOGIN );
@@ -39,8 +39,8 @@ public final class ConnexionForm {
 
     }
 
-    private void verifierMotdepasse( String motDePasse ) {
-        if ( motDePasse.length() <= 3 ) {
+    public void verifierMotdepasse( String motdepasse ) {
+        if ( motdepasse.length() <= 3 ) {
             try {
                 throw new Exception( MessagesErreur.CONSTANTE_ERREUR_MOTDEPASSE );
             } catch ( Exception e ) {

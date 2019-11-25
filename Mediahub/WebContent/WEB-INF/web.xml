@@ -15,7 +15,7 @@
     <servlet-name>Connexion</servlet-name>
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>Home</description>
     <servlet-name>Home</servlet-name>
     <servlet-class>servlets.Home</servlet-class>
@@ -23,6 +23,24 @@
   <servlet-mapping>
     <servlet-name>Home</servlet-name>
     <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Inscription</description>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>servlets.Inscription</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>Profil</description>
+    <servlet-name>Profil</servlet-name>
+    <servlet-class>servlets.Profil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profil</servlet-name>
+    <url-pattern>/profil</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

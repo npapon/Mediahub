@@ -30,7 +30,7 @@ public class Connexion extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         ConnexionForm connexionform = new ConnexionForm();
-        Utilisateur utilisateur = connexionform.inscrireUtilisateur( request, "login", "motDePasse" );
+        Utilisateur utilisateur = connexionform.connecterUtilisateur( request );
         HttpSession session = request.getSession();
         session.setAttribute( attributSession, utilisateur );
         this.getServletContext().getRequestDispatcher( vuePost ).forward( request,

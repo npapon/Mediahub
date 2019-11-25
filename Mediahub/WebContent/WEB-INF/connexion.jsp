@@ -16,13 +16,13 @@
                 <br/>
                
                 <label for="login">Login <span class="requis">*</span></label>
-                <input type="text" id="login" name="login" value="" size="20" maxlength="60" />
+                <input type="text" id="login" name="login" value="<c:out value='${cookieLogin}'/>" size="20" maxlength="60" />
                 <div class="erreur" id="erreurlogin"></div>
                 <br />
                 <br />
                 
                 <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" />
+                <input type="password" id="motdepasse" name="motdepasse" value=""<c:out value='${cookieMotdepasse}'/>" " size="20" maxlength="20" />
                  <div class="erreur" id="erreurmotdepasse"></div>      
                 <br />
                 <br />

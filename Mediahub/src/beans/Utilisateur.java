@@ -4,7 +4,9 @@ public class Utilisateur {
 
     private String login;
     private String motDePasse;
+    private String dateCreationCompte;
     private String dateDeConnexion;
+    private String email;
 
     public String getLogin() {
         return login;
@@ -28,6 +30,22 @@ public class Utilisateur {
 
     public void setDateDeConnexion( String dateDeConnexion ) {
         this.dateDeConnexion = dateDeConnexion;
+    }
+
+    public String getDateCreationCompte() {
+        return dateCreationCompte;
+    }
+
+    public void setDateCreationCompte( String dateCreationCompte ) {
+        this.dateCreationCompte = dateCreationCompte;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail( String email ) {
+        this.email = email;
     }
 
 }
