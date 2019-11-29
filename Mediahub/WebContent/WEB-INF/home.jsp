@@ -7,6 +7,9 @@
 <title>HOME</title>
 </head>
 <body>
-Bienvenue ${session.login}
+<c:if test="${!empty sessionScope.session}">
+Bienvenue ${sessionScope.session.login}
+(Connexion réussie le : ${sessionScope.session.dateDeConnexion})
+</c:if>
 </body>
 </html>

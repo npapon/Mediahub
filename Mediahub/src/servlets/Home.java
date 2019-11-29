@@ -13,11 +13,9 @@ import constantes.Vues;
 @WebServlet( "/Home" )
 public class Home extends HttpServlet {
 
-    private String vue = Vues.CONSTANTE_VUE_HOME;
-
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher( vue ).forward( request,
+        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_HOME ).forward( request,
                 response );
     }
 

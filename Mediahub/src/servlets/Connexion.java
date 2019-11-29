@@ -17,13 +17,9 @@ import constantes.Vues;
 @WebServlet( "/Connexion" )
 public class Connexion extends HttpServlet {
 
-    private String vueGet          = Vues.CONSTANTE_VUE_CONNEXION;
-    private String vuePost         = Vues.CONSTANTE_VUE_HOME;
-    private String attributSession = Attributs.CONSTANTE_ATTRIBUT_SESSION;
-
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher( vueGet ).forward( request,
+        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_CONNEXION ).forward( request,
                 response );
     }
 
@@ -32,8 +28,8 @@ public class Connexion extends HttpServlet {
         ConnexionForm connexionform = new ConnexionForm();
         Utilisateur utilisateur = connexionform.connecterUtilisateur( request );
         HttpSession session = request.getSession();
-        session.setAttribute( attributSession, utilisateur );
-        this.getServletContext().getRequestDispatcher( vuePost ).forward( request,
+        session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION, utilisateur );
+        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_CONNEXION ).forward( request,
                 response );
     }
 

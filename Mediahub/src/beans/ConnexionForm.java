@@ -21,6 +21,8 @@ public class ConnexionForm {
         String motdepasse = request.getParameter( Parametres.CONSTANTE_PARAMETRE_MOTDEPASSE ).trim();
         verifierMotdepasse( motdepasse );
         utilisateur.setMotDePasse( motdepasse );
+        Date date = new Date();
+        utilisateur.setDateDeConnexion( date.dateNowFormatString() );
 
         return utilisateur;
     }

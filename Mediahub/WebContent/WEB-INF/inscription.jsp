@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/style.css'/>" />
+
 <title>INSCRIPTION</title>
 
 </head>
