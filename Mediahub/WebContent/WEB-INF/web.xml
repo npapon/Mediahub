@@ -33,7 +33,7 @@
     <servlet-name>Inscription</servlet-name>
     <url-pattern>/inscription</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>Profil</description>
     <servlet-name>Profil</servlet-name>
     <servlet-class>servlets.Profil</servlet-class>
@@ -41,6 +41,15 @@
   <servlet-mapping>
     <servlet-name>Profil</servlet-name>
     <url-pattern>/profil</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>Menu</description>
+    <servlet-name>Menu</servlet-name>
+    <servlet-class>servlets.Menu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Menu</servlet-name>
+    <url-pattern>/menu</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

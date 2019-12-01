@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <c:import url="/menu" var="file" scope="page" />
+    ${file}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <body>
 <c:if test="${!empty sessionScope.session}">
 Bienvenue ${sessionScope.session.login}
-(Connexion rÃ©ussie le : ${sessionScope.session.dateDeConnexion})
+(Connexion réussie le : ${sessionScope.session.dateDeConnexion})
 </c:if>
 </body>
 </html>

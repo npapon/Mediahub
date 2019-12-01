@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <c:import url="/menu" var="file" scope="page" />
+    ${file}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 <tr><td>Login : </td><td><c:out value="${cookielogin.value}"/></td>
 <tr><td>Email : </td><td><c:out value="${cookieemail.value}"/></td>
 </table>
-<p>Votre compte a Ã©tÃ© crÃ©Ã© il y a ${ecartdateformatverbeux}</p>
+<p>Votre compte a été créé il y a ${ecartdateformatverbeux}</p>
 
 
 </body>

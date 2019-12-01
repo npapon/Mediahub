@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <c:import url="/menu" var="file" scope="page" />
+    ${file}
 <!DOCTYPE html>
 <html>
 <head>

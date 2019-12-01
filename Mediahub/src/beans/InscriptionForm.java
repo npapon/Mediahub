@@ -25,6 +25,7 @@ public class InscriptionForm extends ConnexionForm {
         String email = request.getParameter( Parametres.CONSTANTE_PARAMETRE_EMAIL ).trim();
         verifierEmail( email );
         utilisateur.setEmail( email );
+
         Date date = new Date();
         utilisateur.setDateCreationCompte( date.dateNowFormatString() );
 

@@ -45,7 +45,7 @@ public class Inscription extends HttpServlet {
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_COOKIEEMAIL, cookieEmail );
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_COOKIEDATECREATIONCOMPTE, cookieDateCreationCompte );
 
-        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_PROFIL ).forward( request,
+        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_HOME ).forward( request,
                 response );
     }
 

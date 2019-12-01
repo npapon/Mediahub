@@ -25,13 +25,10 @@ public class Profil extends HttpServlet {
         HttpSession session = request.getSession();
         DateTime datedujour = new DateTime();
         String datecreationcompte = getCookieValue( request, Cookies.CONSTANTE_COOKIE_DATECREATIONCOMPTE );
-        System.out.println( datecreationcompte );
         Date date = new Date();
         DateTime datecreationcompteformatdatetime = date.DateStringFormatDateTime( datecreationcompte );
         String EcartDateFormatVerbeux = date.ecartDateFormatVerbeux( datecreationcompteformatdatetime, datedujour );
 
-        session.setAttribute(
-                "test", datecreationcompte );
         session.setAttribute(
                 Attributs.CONSTANTE_ATTRIBUT_ECARTDATEFORMATVERBEUX, EcartDateFormatVerbeux );
 

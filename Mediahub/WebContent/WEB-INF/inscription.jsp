@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <c:import url="/menu" var="file" scope="page" />
+    ${file}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
         <form method="post">
         
             <fieldset>
-                <legend>CrÃ©er vos identifiants de connexion</legend>
+                <legend>Créer vos identifiants de connexion</legend>
                 <br/>
                
                 <label for="login">Login <span class="requis">*</span></label>
