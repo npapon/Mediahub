@@ -9,4 +9,5 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_COOKIEEMAIL              = "cookieemail";
     public static final String CONSTANTE_ATTRIBUT_COOKIEDATECREATIONCOMPTE = "cookiedatecreationcompte";
     public static final String CONSTANTE_ATTRIBUT_ECARTDATEFORMATVERBEUX   = "ecartdateformatverbeux";
+    public static final String CONSTANTE_ATTRIBUT_LIENDECONNEXION          = "deconnexion";
 }

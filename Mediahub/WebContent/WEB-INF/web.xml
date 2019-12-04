@@ -42,7 +42,7 @@
     <servlet-name>Profil</servlet-name>
     <url-pattern>/profil</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>Menu</description>
     <servlet-name>Menu</servlet-name>
     <servlet-class>servlets.Menu</servlet-class>
@@ -50,6 +50,24 @@
   <servlet-mapping>
     <servlet-name>Menu</servlet-name>
     <url-pattern>/menu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Deconnexion</description>
+    <servlet-name>Deconnexion</servlet-name>
+    <servlet-class>servlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deconnexion</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>DeconnexionBouton</description>
+    <servlet-name>DeconnexionBouton</servlet-name>
+    <servlet-class>servlets.DeconnexionBouton</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeconnexionBouton</servlet-name>
+    <url-pattern>/deconnexionbouton</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

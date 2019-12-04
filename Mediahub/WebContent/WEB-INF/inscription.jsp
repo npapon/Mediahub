@@ -1,3 +1,5 @@
+  <c:import url="/deconnexionbouton" var="file" scope="page" />
+    ${file}
  <c:import url="/menu" var="file" scope="page" />
     ${file}
 <!DOCTYPE html>
