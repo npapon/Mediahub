@@ -1,5 +1,7 @@
-  <c:import url="/deconnexionbouton" var="file" scope="page" />
-    ${file} 
+<c:if test="${!empty session}">
+<c:import url="/deconnexionbouton" var="file" scope="page" />
+    ${file}
+    </c:if>
 <c:import url="/menu" var="file" scope="page" />
     ${file}
 <!DOCTYPE html>

@@ -21,5 +21,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_DECONNEXIONBOUTON             = "/WEB-INF/deconnexionbouton.jsp";
     public static final String CONSTANTE_VUE_DECONNEXIONBOUTON_NOMCOURT    = "deconnexionbouton";
     public static final String CONSTANTE_VUE_DECONNEXIONBOUTON_DESCRIPTION = "Bouton de deconnexion";
+    public static final String CONSTANTE_VUE_ADMINISTRATION                = "/WEB-INF/administration.jsp";
+    public static final String CONSTANTE_VUE_ADMINISTRATION_NOMCOURT       = "Administration";
+    public static final String CONSTANTE_VUE_ADMINISTRATION_DESCRIPTION    = "Administration";
 
 }

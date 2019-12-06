@@ -8,14 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HOME</title>
+<title>ADMINISTRATION</title>
 </head>
 <body>
-WELCOME !
-<br/>
-<c:if test="${!empty sessionScope.session}">
-Bienvenue ${sessionScope.session.login}
-(Connexion réussie le : ${sessionScope.session.dateDeConnexion})
-</c:if>
+Admin
 </body>
 </html>
