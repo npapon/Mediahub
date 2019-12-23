@@ -1,12 +1,18 @@
 package beans;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import scripts.Script;
+
 public class Utilisateur {
 
-    private String login;
-    private String motDePasse;
-    private String dateCreationCompte;
-    private String dateDeConnexion;
-    private String email;
+    private String              login;
+    private String              motDePasse;
+    private String              dateCreationCompte;
+    private String              dateDeConnexion;
+    private String              email;
+    private Map<String, Script> listeScripts = new HashMap<String, Script>();
 
     public String getLogin() {
         return login;
@@ -46,6 +52,14 @@ public class Utilisateur {
 
     public void setEmail( String email ) {
         this.email = email;
+    }
+
+    public Map<String, Script> getListeScripts() {
+        return listeScripts;
+    }
+
+    public void setListeScripts( Map<String, Script> listeScripts ) {
+        this.listeScripts = listeScripts;
     }
 
 }

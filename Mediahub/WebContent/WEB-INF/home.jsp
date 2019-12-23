@@ -12,6 +12,7 @@
 </head>
 <body>
 WELCOME !
+
 <br/>
 <c:if test="${!empty sessionScope.session}">
 Bienvenue ${sessionScope.session.login}

@@ -29,8 +29,7 @@ public class Connexion extends HttpServlet {
         Utilisateur utilisateur = connexionform.connecterUtilisateur( request );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION, utilisateur );
-        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_HOME ).forward( request,
-                response );
+        response.sendRedirect( Vues.CONSTANTE_VUE_HOME_NOMCOURT );
     }
 
 }

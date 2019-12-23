@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MENU</title>
 </head>
 <body>
 <div id="menu">

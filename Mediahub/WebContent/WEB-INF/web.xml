@@ -69,7 +69,7 @@
     <servlet-name>DeconnexionBouton</servlet-name>
     <url-pattern>/deconnexionbouton</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>Administration</description>
     <servlet-name>Administration</servlet-name>
     <servlet-class>servlets.Administration</servlet-class>
@@ -78,15 +78,39 @@
     <servlet-name>Administration</servlet-name>
     <url-pattern>/administration</url-pattern>
   </servlet-mapping>
-     <filter>
+  <servlet>
+    <description>Creerscript</description>
+    <servlet-name>Creerscript</servlet-name>
+    <servlet-class>servlets.Creerscript</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Creerscript</servlet-name>
+    <url-pattern>/creerscript</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>ListeScripts</description>
+    <servlet-name>ListeScripts</servlet-name>
+    <servlet-class>servlets.ListeScripts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListeScripts</servlet-name>
+    <url-pattern>/listescripts</url-pattern>
+  </servlet-mapping>
+  <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
-</filter>
-<filter-mapping>
+  </filter>
+  <filter-mapping>
     <filter-name>RestrictionFilter</filter-name>
+    <url-pattern>/administration</url-pattern>
     <url-pattern>/Administration</url-pattern>
-</filter-mapping>
-
+    <url-pattern>/profil</url-pattern>
+    <url-pattern>/Profil</url-pattern>
+       <url-pattern>/listescripts</url-pattern>
+    <url-pattern>/Listescripts</url-pattern>
+           <url-pattern>/creerscript</url-pattern>
+    <url-pattern>/Creerscript</url-pattern>
+  </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
     <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
