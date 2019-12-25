@@ -12,6 +12,7 @@ var motdepasseValide = false;
 var confirmationValide = false;
 var mailValide = false;
 
+
 loginInput.addEventListener("blur", function() {
 	validationLogin();
 

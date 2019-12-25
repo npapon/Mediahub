@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.CreerScriptForm;
-import beans.Date;
+import beans.ModifierScriptForm;
 import beans.Utilisateur;
 import constantes.Attributs;
 import constantes.MessagesErreur;
+import constantes.Parametres;
 import constantes.Vues;
 import scripts.Script;
 
@@ -27,20 +28,37 @@ public class Creerscript extends HttpServlet {
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
-        CreerScriptForm creerscriptform = new CreerScriptForm();
-        Script script = creerscriptform.creerScript( request );
+        if ( request.getParameter( Parametres.CONSTANTE_PARAMETRE_ACTIONSCRIPT )
+                .equals( Parametres.CONSTANTE_PARAMETRE_ACTIONSCRIPT_VALUE_CREER ) ) {
 
-        HttpSession session = request.getSession();
-        Utilisateur utilisateur = (Utilisateur) session.getAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION );
+            CreerScriptForm creerscriptform = new CreerScriptForm();
+            Script script = creerscriptform.creerScript( request );
 
-        Date date = new Date();
-        try {
-            utilisateur.getListeScripts().put( script.getCode(), script );
-        } catch ( NullPointerException e ) {
-            System.out.println( MessagesErreur.CONSTANTE_ERREUR_CONNEXION );
+            HttpSession session = request.getSession();
+            Utilisateur utilisateur = (Utilisateur) session.getAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION );
+
+            try {
+                utilisateur.getListeScripts().put( script.getCode(), script );
+            } catch ( NullPointerException e ) {
+                System.out.println( MessagesErreur.CONSTANTE_ERREUR_CONNEXION );
+            }
+            session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION, utilisateur );
+            response.sendRedirect( Vues.CONSTANTE_VUE_LISTESCRIPTS_NOMCOURT );
+        } else {
+            ModifierScriptForm modifierscriptform = new ModifierScriptForm();
+            Script script = modifierscriptform.modifierScript( request );
+
+            HttpSession session = request.getSession();
+            Utilisateur utilisateur = (Utilisateur) session.getAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION );
+
+            try {
+                utilisateur.getListeScripts().put( script.getCode(), script );
+            } catch ( NullPointerException e ) {
+                System.out.println( MessagesErreur.CONSTANTE_ERREUR_CONNEXION );
+            }
+            session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION, utilisateur );
+            response.sendRedirect( Vues.CONSTANTE_VUE_LISTESCRIPTS_NOMCOURT );
         }
-        session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_SESSION, utilisateur );
-        response.sendRedirect( Vues.CONSTANTE_VUE_LISTESCRIPTS_NOMCOURT );
     }
 
 }

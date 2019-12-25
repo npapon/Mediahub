@@ -10,13 +10,22 @@ var submitInput = document.getElementById("submit");
 var codescriptValide = false;
 var libellescriptValide = false;
 modifierDiv.style.display = "none";
+var codescriptamodifierSelect = document.getElementById("codescriptamodifier");
+var codescriptamodifierOption = document.getElementById("codescriptamodifieroption");
+var libellescriptamodifierInput =document.getElementById("libellescriptamodifier");
+
+codescriptamodifierSelect.addEventListener("change",function(e){
+libellescriptamodifierInput.value = codescriptamodifierSelect.options[codescriptamodifierSelect.selectedIndex].innerHTML;
+}
+)
+
 
 modifierInput.addEventListener("change", function() {
-	
+
 
 	creerDiv.style.display = "none";
 	modifierDiv.style.display = "block";
-	
+;
 
 })
 

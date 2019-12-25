@@ -4,6 +4,9 @@ var buttonsSupprimer = document.getElementsByTagName('button');
 var scriptsasupprimerTableau =[];
 var scriptsasupprimerInput = document.getElementById("scriptsasupprimer");
 
+scriptsasupprimerInput.style.display = "none";
+
+
 
 for (var i = 0, c = buttonsSupprimer.length; i < c; i++)
 
