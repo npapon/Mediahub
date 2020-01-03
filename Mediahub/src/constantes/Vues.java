@@ -30,5 +30,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_LISTESCRIPTS                  = "/WEB-INF/listescripts.jsp";
     public static final String CONSTANTE_VUE_LISTESCRIPTS_NOMCOURT         = "listescripts";
     public static final String CONSTANTE_VUE_LISTESCRIPTS_DESCRIPTION      = "Gérer les scripts";
+    public static final String CONSTANTE_VUE_ENVOIFICHIERS                 = "/WEB-INF/envoifichiers.jsp";
+    public static final String CONSTANTE_VUE_ENVOIFICHIERS_NOMCOURT        = "envoifichiers";
+    public static final String CONSTANTE_VUE_ENVOIFICHIERS_DESCRIPTION     = "Envoyer un ou des fichiers";
 
 }

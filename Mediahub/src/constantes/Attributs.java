@@ -11,4 +11,5 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_ECARTDATEFORMATVERBEUX   = "ecartdateformatverbeux";
     public static final String CONSTANTE_ATTRIBUT_LIENDECONNEXION          = "deconnexion";
     public static final String CONSTANTE_ATTRIBUT_LISTESCRIPTSVUE          = "listescriptsvue";
+    public static final String CONSTANTE_ATTRIBUT_FICHIER                  = "fichier";
 }

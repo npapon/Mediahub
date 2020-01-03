@@ -26,7 +26,7 @@ public class CreerScriptForm {
         return script;
     }
 
-    public void verifierCode( String codescript ) {
+    private void verifierCode( String codescript ) {
         if ( codescript.length() != 3 ) {
             try {
                 throw new Exception( MessagesErreur.CONSTANTE_ERREUR_CODE_SCRIPT );
@@ -40,7 +40,7 @@ public class CreerScriptForm {
 
     }
 
-    public void verifierLibelle( String libellescript ) {
+    private void verifierLibelle( String libellescript ) {
         if ( libellescript.length() <= 3 ) {
             try {
                 throw new Exception( MessagesErreur.CONSTANTE_ERREUR_LIBELLE_SCRIPT );

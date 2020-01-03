@@ -13,5 +13,7 @@ public class Parametres {
     public static final String CONSTANTE_PARAMETRE_ACTIONSCRIPT_VALUE_CREER = "creer";
     public static final String CONSTANTE_PARAMETRE_CODESCRIPTAMODIFIER      = "codescriptamodifier";
     public static final String CONSTANTE_PARAMETRE_LIBELLESCRIPTAMODIFIER   = "libellescriptamodifier";
+    public static final String CONSTANTE_PARAMETRE_DESCRIPTION              = "description";
+    public static final String CONSTANTE_PARAMETRE_FICHIER                  = "fichier";
 
 }

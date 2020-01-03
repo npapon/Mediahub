@@ -9,4 +9,6 @@ public class MessagesErreur {
     public static final String CONSTANTE_ERREUR_CODE_SCRIPT            = "Le code doit faire 3 caractères";
     public static final String CONSTANTE_ERREUR_LIBELLE_SCRIPT         = "Le libellé doit faire au moins 3 caractères";
     public static final String CONSTANTE_ERREUR_CONNEXION              = "aucune connexion. Veuillez vous connecter";
+    public static final String CONSTANTE_ERREUR_DESCRIPTIONFICHIER     = "La description du fichier doit faire plus de 3 caractères";
+    public static final String CONSTANTE_ERREUR_NOMFICHIER             = "Aucun fichier n'a été ajouté";
 }
