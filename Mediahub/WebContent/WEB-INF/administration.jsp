@@ -11,6 +11,11 @@
 <title>ADMINISTRATION</title>
 </head>
 <body>
-Admin
+<ol>
+        <c:forEach var="entry" items="${menuadministration}">
+   <li> <a href="<c:url value="${entry.value}"/>" title="<c:out value="${entry.key}"/>"><c:out value="${entry.value}"/></a></li>
+        <br/>
+        </c:forEach>
+</ol>
 </body>
 </html>

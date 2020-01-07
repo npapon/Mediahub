@@ -11,4 +11,5 @@ public class MessagesErreur {
     public static final String CONSTANTE_ERREUR_CONNEXION              = "aucune connexion. Veuillez vous connecter";
     public static final String CONSTANTE_ERREUR_DESCRIPTIONFICHIER     = "La description du fichier doit faire plus de 3 caractères";
     public static final String CONSTANTE_ERREUR_NOMFICHIER             = "Aucun fichier n'a été ajouté";
+    public static final String CONSTANTE_ERREUR_DOSSIERIMAGESPROFIL    = "le dossier images profil est vide ou n'existe pas";
 }

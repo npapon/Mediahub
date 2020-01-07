@@ -33,5 +33,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_ENVOIFICHIERS                 = "/WEB-INF/envoifichiers.jsp";
     public static final String CONSTANTE_VUE_ENVOIFICHIERS_NOMCOURT        = "envoifichiers";
     public static final String CONSTANTE_VUE_ENVOIFICHIERS_DESCRIPTION     = "Envoyer un ou des fichiers";
+    public static final String CONSTANTE_VUE_GERERFICHIERS                 = "/WEB-INF/gererfichiers.jsp";
+    public static final String CONSTANTE_VUE_GERERFICHIERS_NOMCOURT        = "gererfichiers";
+    public static final String CONSTANTE_VUE_GERERFICHIERS_DESCRIPTION     = "Gérer les fichiers uploadés";
 
 }

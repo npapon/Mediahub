@@ -31,7 +31,7 @@ public class EnvoiFichiers extends HttpServlet {
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIER, fichier );
 
         fichier.setChemin( this.getServletConfig().getInitParameter(
-                Repertoires.CHEMIN ) );
+                Repertoires.CONSTANTE_REPERTOIRE_VARIABLE_CHEMIN ) );
         String chemin = fichier.getChemin();
 
         envoifichiersform.ecrireFichier( fichier.getParametresFichier(), fichier.getNom(), chemin );

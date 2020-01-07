@@ -1,11 +1,10 @@
 /* Général ------------------------------------------------------------------------------------- */
 body, p, legend, label, input {
 	font: normal 8pt verdana, helvetica, sans-serif;
-	
 }
 
 /* Forms --------------------------------------------------------------------------------------- */
-fieldset { 
+fieldset {
 	padding: 10px;
 	border: 1px #0568CD solid;
 	margin: 10px;
@@ -110,6 +109,11 @@ img[title="deconnexion"] {
 	height: 50px;
 }
 
+img.imageprofil {
+	height: 100px;
+	width: auto;
+}
+
 /* tableau -------------------------------------------------------------------------- */
 table {
 	border-collapse: collapse;
@@ -127,4 +131,9 @@ caption {
 
 td, th {
 	font: normal 8pt verdana, helvetica, sans-serif;
+}
+
+/* bouton -------------------------------------------------------------------------- */
+.supprimer {
+	text-align: center;
 }
