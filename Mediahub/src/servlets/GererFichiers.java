@@ -16,6 +16,7 @@ import beans.AdministrationImages;
 import beans.Image;
 import constantes.Attributs;
 import constantes.Images;
+import constantes.Parametres;
 import constantes.Repertoires;
 import constantes.Vues;
 
@@ -23,8 +24,7 @@ import constantes.Vues;
 public class GererFichiers extends HttpServlet {
 
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        File dossierImages = new File( "/WebContent/img/profil" );
-        System.out.println( "lol" + dossierImages.getAbsolutePath() );
+
         List<Image> images = new ArrayList<Image>();
 
         AdministrationImages administrationimages = new AdministrationImages();
@@ -38,6 +38,19 @@ public class GererFichiers extends HttpServlet {
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
+        String imagesasupprimer = request.getParameter( Parametres.CONSTANTE_PARAMETRE_IMAGES_A_SUPPRIMER );
+        String[] imagesasupprimerTableau = imagesasupprimer.split( "," );
+
+        for ( String imagelibelle : imagesasupprimerTableau ) {
+
+            File file = new File( Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_IMAGESPROFIL + "/" + imagelibelle );
+            System.out.println( file.getAbsolutePath() );
+            System.out.println( file.exists() );
+            file.delete();
+
+        }
+
+        response.sendRedirect( Vues.CONSTANTE_VUE_GERERFICHIERS_NOMCOURT );
     }
 
 }
