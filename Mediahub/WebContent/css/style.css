@@ -34,6 +34,13 @@ form input.sansLabel {
 	font-style: italic;
 	color: #E8A22B;
 }
+
+textarea
+{
+	width:auto;
+	height:200px;
+}
+
 /* Styles et couleurs -------------------------------------------------------------------------- */
 .requis {
 	color: #c00;

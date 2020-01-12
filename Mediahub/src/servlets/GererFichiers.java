@@ -32,6 +32,8 @@ public class GererFichiers extends HttpServlet {
                 Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_IMAGESPROFIL, Repertoires.CONSTANTE_REPERTOIRE_RELATIF_IMAGESPROFIL );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_IMAGESPROFIL, imagesProfil );
+
+        session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_GERERFICHIERSVUE, Vues.CONSTANTE_VUE_GERERFICHIERS_NOMCOURT );
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_GERERFICHIERS ).forward( request,
                 response );
     }
@@ -44,8 +46,6 @@ public class GererFichiers extends HttpServlet {
         for ( String imagelibelle : imagesasupprimerTableau ) {
 
             File file = new File( Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_IMAGESPROFIL + "/" + imagelibelle );
-            System.out.println( file.getAbsolutePath() );
-            System.out.println( file.exists() );
             file.delete();
 
         }

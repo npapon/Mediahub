@@ -96,7 +96,7 @@
     <servlet-name>ListeScripts</servlet-name>
     <url-pattern>/listescripts</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>GererFichiers</description>
     <servlet-name>GererFichiers</servlet-name>
     <servlet-class>servlets.GererFichiers</servlet-class>
@@ -124,6 +124,15 @@
     <servlet-name>EnvoiFichiers</servlet-name>
     <url-pattern>/envoifichiers</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>LectureFichier</description>
+    <servlet-name>LectureFichier</servlet-name>
+    <servlet-class>servlets.LectureFichier</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LectureFichier</servlet-name>
+    <url-pattern>/lecturefichier</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
@@ -142,6 +151,8 @@
     <url-pattern>/Envoifichiers</url-pattern>
     <url-pattern>/gererfichiers</url-pattern>
     <url-pattern>/Gererfichiers</url-pattern>
+    <url-pattern>/lecturefichier</url-pattern>
+    <url-pattern>/Lecturefichier</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

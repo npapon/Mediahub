@@ -7,6 +7,8 @@ public class Fichier {
     private String nom;
     private String description;
     private String chemin;
+    private String type;
+    private String contenu;
     private Part   parametresFichier;
 
     public String getNom() {
@@ -39,6 +41,22 @@ public class Fichier {
 
     public void setParametresFichier( Part parametresFichier ) {
         this.parametresFichier = parametresFichier;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType( String type ) {
+        this.type = type;
+    }
+
+    public String getContenu() {
+        return contenu;
+    }
+
+    public void setContenu( String contenu ) {
+        this.contenu = contenu;
     }
 
 }
