@@ -34,6 +34,15 @@ public class LecteurFichier {
         } catch ( IOException e ) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } finally {
+            if ( lecteurfichier != null ) {
+                try {
+                    lecteurfichier.close();
+                } catch ( IOException e ) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
         }
 
         fichier.setContenu( fichierlu );

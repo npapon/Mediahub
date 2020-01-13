@@ -1,6 +1,5 @@
 package servlets;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -23,9 +22,6 @@ public class LectureFichier extends HttpServlet {
 
         LecteurFichier lecteurfichier = new LecteurFichier();
         Fichier fichier = lecteurfichier.lireFichier( "nico.txt", Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
-        System.out.println( fichier.getChemin() );
-        File file = new File( Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS + "/" + "nico.txt" );
-        System.out.println( file.getAbsolutePath() );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERLU, fichier );
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_LECTUREFICHIER ).forward( request,

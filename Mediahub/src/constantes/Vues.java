@@ -39,5 +39,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_LECTUREFICHIER                = "/WEB-INF/lecturefichier.jsp";
     public static final String CONSTANTE_VUE_LECTUREFICHIER_NOMCOURT       = "lecturefichier";
     public static final String CONSTANTE_VUE_LECTUREFICHIER_DESCRIPTION    = "Lire un fichier texte et l'écrire dans un autre";
+    public static final String CONSTANTE_VUE_ECRITUREFICHIER               = "/WEB-INF/ecrirefichier.jsp";
+    public static final String CONSTANTE_VUE_ECRITUREFICHIER_NOMCOURT      = "ecrirefichier";
+    public static final String CONSTANTE_VUE_ECRITUREFICHIER_DESCRIPTION   = "Ecrire dans un fichier";
 
 }
