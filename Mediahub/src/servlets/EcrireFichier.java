@@ -32,7 +32,7 @@ public class EcrireFichier extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         EcriteurFichier ecriteurFichier = new EcriteurFichier();
-        Fichier fichierecri = ecriteurFichier.ecrireFichierParDuplication( "nico.txt", "valentine.txt",
+        Fichier fichierecri = ecriteurFichier.ecrireFichierParDuplication( "nico.txt", "valoche.txt",
                 Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS,
                 Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
         HttpSession session = request.getSession();

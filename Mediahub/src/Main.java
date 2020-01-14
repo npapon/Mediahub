@@ -1,3 +1,5 @@
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,9 +13,11 @@ public class Main {
 
         FileInputStream lectureFichier = null;
         FileOutputStream ecritureFichier = null;
+        BufferedInputStream lecteurFichierBuffered = null;
+        BufferedOutputStream ecritureFichierBuffered = null;
 
-        File fichiertextlu = new File( "nico.txt" );
-        File fichiertextecri = new File( "nico3.txt" );
+        File fichiertextlu = new File( "dictionnaire.txt" );
+        File fichiertextecri = new File( "copielente.txt" );
         try {
 
             lectureFichier = new FileInputStream( fichiertextlu );
@@ -22,45 +26,71 @@ public class Main {
             byte[] buf = new byte[8];
 
             int n = 0;
-            int tour = 0;
+            long starttime = System.currentTimeMillis();
 
             while ( ( n = lectureFichier.read( buf ) ) >= 0 ) {
-                tour = tour + 1;
-                System.out.println( "tour numero " + tour );
+
                 ecritureFichier.write( buf );
-                for ( byte bit : buf ) {
-                    System.out.println( bit + "(" + (char) bit + ")" );
-                }
 
             }
-            // au cas ou il n'y ait pas de fichier dans la lecture du fichier
-            // (l'écriture il le créé)
+
+            long endtime = System.currentTimeMillis();
+            System.out.println( "le script a pris avec FileInputStream/FileOutputStream " + ( endtime - starttime ) );
+
+            lecteurFichierBuffered = new BufferedInputStream(
+                    new FileInputStream( new File( "dictionnaire.txt" ) ) );
+            ecritureFichierBuffered = new BufferedOutputStream(
+                    new FileOutputStream( new File( "copierapide.txt" ) ) );
+
+            starttime = System.currentTimeMillis();
+            while ( lecteurFichierBuffered.read() != -1 ) {
+                ecritureFichierBuffered.write( buf );
+
+            }
+
+            endtime = System.currentTimeMillis();
+            System.out.println( "le script a pris avec BufferedInputStream/BufferedOutputStream " + ( endtime - starttime ) );
+
         } catch ( FileNotFoundException e ) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            // cela arrive quand il y a une erreur d'écriture ou lecture
-        } catch ( IOException e ) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
 
-            // On ferme nos flux de données dans un bloc finally pour s'assurer
-            // que ca soit fait même en cas d'exception
+        } catch ( IOException e ) {
+
+            e.printStackTrace();
 
         } finally {
             if ( lectureFichier != null ) {
                 try {
                     lectureFichier.close();
                 } catch ( IOException e ) {
-                    // TODO Auto-generated catch block
+
                     e.printStackTrace();
                 }
             }
+
+            if ( lecteurFichierBuffered != null ) {
+                try {
+                    lectureFichier.close();
+                } catch ( IOException e ) {
+                }
+            }
+
         }
         if ( ecritureFichier != null ) {
             try {
                 ecritureFichier.close();
             } catch ( IOException e ) {
-                // TODO Auto-generated catch block
+
+                e.printStackTrace();
+            }
+        }
+
+        if ( ecritureFichierBuffered != null ) {
+            try {
+                ecritureFichierBuffered.close();
+            } catch ( IOException e ) {
+
                 e.printStackTrace();
             }
         }

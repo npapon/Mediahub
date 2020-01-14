@@ -1,5 +1,7 @@
 package beans;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,17 +25,19 @@ public class EcriteurFichier {
         File fileFichierEcri = new File( repertoireAbsoluFichierEcri + "/" + nomFichierEcri );
         fichierEcri.setChemin( cheminFichierEcri );
 
-        FileInputStream lecteurfichier = null;
-        FileOutputStream ecriteurfichier = null;
+        BufferedInputStream lecteurfichierbuffered = null;
+        BufferedOutputStream ecriteurfichierbuffered = null;
+
         byte[] bytes = new byte[8];
         String contenuFichierLu = "";
         String contenuFichierEcri = "";
 
         try {
-            lecteurfichier = new FileInputStream( fileFichierLu );
-            ecriteurfichier = new FileOutputStream( fileFichierEcri );
-            while ( lecteurfichier.read( bytes ) > 0 ) {
-                ecriteurfichier.write( bytes );
+            lecteurfichierbuffered = new BufferedInputStream( new FileInputStream( fileFichierLu ) );
+            ecriteurfichierbuffered = new BufferedOutputStream( new FileOutputStream( fileFichierEcri ) );
+
+            while ( lecteurfichierbuffered.read( bytes ) > 0 ) {
+                ecriteurfichierbuffered.write( bytes );
                 for ( byte bite : bytes ) {
 
                     contenuFichierLu = contenuFichierLu + (char) bite;
@@ -50,18 +54,18 @@ public class EcriteurFichier {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            if ( lecteurfichier != null ) {
+            if ( lecteurfichierbuffered != null ) {
                 try {
-                    lecteurfichier.close();
+                    lecteurfichierbuffered.close();
                 } catch ( IOException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
 
-            if ( ecriteurfichier != null ) {
+            if ( ecriteurfichierbuffered != null ) {
                 try {
-                    ecriteurfichier.close();
+                    ecriteurfichierbuffered.close();
                 } catch ( IOException e ) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

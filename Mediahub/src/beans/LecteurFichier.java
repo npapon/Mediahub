@@ -1,5 +1,6 @@
 package beans;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,12 +16,12 @@ public class LecteurFichier {
         File file = new File( repertoireAbsolu + "/" + nom );
         fichier.setChemin( chemin );
 
-        FileInputStream lecteurfichier = null;
+        BufferedInputStream lecteurfichier = null;
         byte[] bytes = new byte[8];
         String fichierlu = "";
 
         try {
-            lecteurfichier = new FileInputStream( file );
+            lecteurfichier = new BufferedInputStream( new FileInputStream( file ) );
             while ( lecteurfichier.read( bytes ) > 0 ) {
                 for ( byte bite : bytes ) {
                     fichierlu = fichierlu + (char) bite;
