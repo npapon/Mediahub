@@ -17,4 +17,5 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_IMAGESPROFIL             = "imagesprofil";
     public static final String CONSTANTE_ATTRIBUT_FICHIERLU                = "fichierlu";
     public static final String CONSTANTE_ATTRIBUT_FICHIERECRI              = "fichierecri";
+    public static final String CONSTANTE_ATTRIBUT_FICHIERCREE              = "fichiercree";
 }

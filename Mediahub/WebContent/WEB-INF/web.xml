@@ -133,7 +133,7 @@
     <servlet-name>LectureFichier</servlet-name>
     <url-pattern>/lecturefichier</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description>EcrireFichier</description>
     <servlet-name>EcrireFichier</servlet-name>
     <servlet-class>servlets.EcrireFichier</servlet-class>
@@ -141,6 +141,15 @@
   <servlet-mapping>
     <servlet-name>EcrireFichier</servlet-name>
     <url-pattern>/ecrirefichier</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>EcrireGenererFichierText</description>
+    <servlet-name>EcrireGenererFichierText</servlet-name>
+    <servlet-class>servlets.EcrireGenererFichierText</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EcrireGenererFichierText</servlet-name>
+    <url-pattern>/ecriregenererfichiertext</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
@@ -162,8 +171,10 @@
     <url-pattern>/Gererfichiers</url-pattern>
     <url-pattern>/lecturefichier</url-pattern>
     <url-pattern>/Lecturefichier</url-pattern>
-     <url-pattern>/ecrirefichier</url-pattern>
-    <url-pattern>/Ecrirefichier</url-pattern> 
+    <url-pattern>/ecrirefichier</url-pattern>
+    <url-pattern>/Ecrirefichier</url-pattern>
+    <url-pattern>/ecriregenererfichiertext</url-pattern>
+    <url-pattern>/Ecriregenererfichiertext</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
