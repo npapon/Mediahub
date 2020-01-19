@@ -151,6 +151,15 @@
     <servlet-name>EcrireGenererFichierText</servlet-name>
     <url-pattern>/ecriregenererfichiertext</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>EcrireGenererFichierTextFileWriter</description>
+    <servlet-name>EcrireGenererFichierTextFileWriter</servlet-name>
+    <servlet-class>servlets.EcrireGenererFichierTextFileWriter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EcrireGenererFichierTextFileWriter</servlet-name>
+    <url-pattern>/ecriregenererfichiertextfilewriter</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
@@ -175,6 +184,8 @@
     <url-pattern>/Ecrirefichier</url-pattern>
     <url-pattern>/ecriregenererfichiertext</url-pattern>
     <url-pattern>/Ecriregenererfichiertext</url-pattern>
+        <url-pattern>/ecriregenererfichiertextfilewriter</url-pattern>
+    <url-pattern>/Ecriregenererfichiertextfilewriter</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
