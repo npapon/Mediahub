@@ -48,4 +48,10 @@ public class Vues {
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILEWRITER             = "/WEB-INF/ecriregenererfichiertextfilewriter.jsp";
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILEWRITER_NOMCOURT    = "ecriregenererfichiertextfilewriter";
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILEWRITER_DESCRIPTION = "Ecrire et générer le résultat dans un fichier text avec file writer";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILEREADER                      = "/WEB-INF/lecteurfichierfilereader.jsp";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILEREADER_NOMCOURT             = "lecteurfichierfilereader";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILEREADER_DESCRIPTION          = "Lire un fichier avec file reader";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILECHANNEL                     = "/WEB-INF/lecteurfichierfilechannel.jsp";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILECHANNEL_NOMCOURT            = "lecteurfichierfilechannel";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECFILECHANNEL_DESCRIPTION         = "Lire un fichier avec filechannel";
 }

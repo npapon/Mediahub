@@ -160,6 +160,24 @@
     <servlet-name>EcrireGenererFichierTextFileWriter</servlet-name>
     <url-pattern>/ecriregenererfichiertextfilewriter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>LecteurFichierFileReader</description>
+    <servlet-name>LecteurFichierFileReader</servlet-name>
+    <servlet-class>servlets.LecteurFichierFileReader</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LecteurFichierFileReader</servlet-name>
+    <url-pattern>/lecteurfichierfilereader</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>LecteurFichierFileChannel</description>
+    <servlet-name>LecteurFichierFileChannel</servlet-name>
+    <servlet-class>servlets.LecteurFichierFileChannel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LecteurFichierFileChannel</servlet-name>
+    <url-pattern>/lecteurfichierfilechannel</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
@@ -184,8 +202,12 @@
     <url-pattern>/Ecrirefichier</url-pattern>
     <url-pattern>/ecriregenererfichiertext</url-pattern>
     <url-pattern>/Ecriregenererfichiertext</url-pattern>
-        <url-pattern>/ecriregenererfichiertextfilewriter</url-pattern>
+    <url-pattern>/ecriregenererfichiertextfilewriter</url-pattern>
     <url-pattern>/Ecriregenererfichiertextfilewriter</url-pattern>
+    <url-pattern>/lecteurfichierfilereader</url-pattern>
+    <url-pattern>/Lecteurfichierfilereader</url-pattern>
+    <url-pattern>/lecteurfichierfilechannel</url-pattern>
+    <url-pattern>/Lecteurfichierfilechannel</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
