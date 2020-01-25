@@ -169,7 +169,7 @@
     <servlet-name>LecteurFichierFileReader</servlet-name>
     <url-pattern>/lecteurfichierfilereader</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description>LecteurFichierFileChannel</description>
     <servlet-name>LecteurFichierFileChannel</servlet-name>
     <servlet-class>servlets.LecteurFichierFileChannel</servlet-class>
@@ -177,6 +177,15 @@
   <servlet-mapping>
     <servlet-name>LecteurFichierFileChannel</servlet-name>
     <url-pattern>/lecteurfichierfilechannel</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>EcrireGenererFichierTextFileChannel</description>
+    <servlet-name>EcrireGenererFichierTextFileChannel</servlet-name>
+    <servlet-class>servlets.EcrireGenererFichierTextFileChannel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EcrireGenererFichierTextFileChannel</servlet-name>
+    <url-pattern>/ecriregenererfichiertextfilechannel</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
@@ -208,6 +217,8 @@
     <url-pattern>/Lecteurfichierfilereader</url-pattern>
     <url-pattern>/lecteurfichierfilechannel</url-pattern>
     <url-pattern>/Lecteurfichierfilechannel</url-pattern>
+       <url-pattern>/ecriregenererfichiertextfilechannel</url-pattern>
+    <url-pattern>/Ecriregenererfichiertextfilechannel</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
