@@ -22,7 +22,7 @@ public class EcrireFichier extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         LecteurFichier lecteurfichier = new LecteurFichier();
-        Fichier fichierlu = lecteurfichier.lireFichier( "nico.txt", Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+        Fichier fichierlu = lecteurfichier.lireFichier( "nico.txt", Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERLU, fichierlu );
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_ECRITUREFICHIER ).forward( request,
@@ -33,8 +33,8 @@ public class EcrireFichier extends HttpServlet {
 
         EcriteurFichier ecriteurFichier = new EcriteurFichier();
         Fichier fichierecri = ecriteurFichier.ecrireFichierParDuplication( "nico.txt", "valoche.txt",
-                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS,
-                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT,
+                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERECRI, fichierecri );
 

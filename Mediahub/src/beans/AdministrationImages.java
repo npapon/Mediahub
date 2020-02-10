@@ -6,7 +6,7 @@ import java.util.List;
 
 import constantes.MessagesErreur;
 
-public class AdministrationImages {
+public class AdministrationImages extends AdministrationObjetsAdministratifs {
 
     public List<Image> retournerImages( String type, String repertoireAbsolu, String repertoireRelatif ) {
         File dossierImages = new File( repertoireAbsolu );
@@ -16,6 +16,7 @@ public class AdministrationImages {
                 Image image = new Image();
                 image.setType( type );
                 image.setLibelle( file.getName() );
+
                 image.setEmplacement( repertoireRelatif + file.getName() );
 
                 images.add( image );

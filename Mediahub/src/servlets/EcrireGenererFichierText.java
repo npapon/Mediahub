@@ -27,7 +27,7 @@ public class EcrireGenererFichierText extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         CreerFichierTextForm creerFichierTextForm = new CreerFichierTextForm();
-        Fichier fichier = creerFichierTextForm.CreerFichierText( request, Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+        Fichier fichier = creerFichierTextForm.CreerFichierText( request, Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERCREE, fichier );
         response.sendRedirect( Vues.CONSTANTE_VUE_ECRIREGENERERFICHIERTEXT_NOMCOURT );

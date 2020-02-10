@@ -26,7 +26,7 @@ public class EcrireGenererFichierTextFileChannel extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         CreerFichierTextFormFileChannel creerFichierTextFormFileChannel = new CreerFichierTextFormFileChannel();
         Fichier fichier = creerFichierTextFormFileChannel.creerFichierTextFileChannel( request,
-                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERCREE, fichier );
         response.sendRedirect( Vues.CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILECHANNEL_NOMCOURT );

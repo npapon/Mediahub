@@ -57,4 +57,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILECHANNEL             = "/WEB-INF/ecriregenererfichiertextfilechannel.jsp";
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILECHANNEL_NOMCOURT    = "ecriregenererfichiertextfilechannel";
     public static final String CONSTANTE_VUE_ECRIREGENERERFICHIERTEXTFILECHANNEL_DESCRIPTION = "Ecrire et générer le résultat dans un fichier text avec filechannel";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECCHANNELNIO2                      = "/WEB-INF/lecteurfichierchannelnio2.jsp";
+    public static final String CONSTANTE_VUE_LIREFICHIERAVECCHANNELNIO2_NOMCOURT             = " lecteurfichierchannelnio2";
+    public static final String CONSTANTE_VUE_LIREFICHIERCHANNELNIO2_DESCRIPTION              = "Lire un fichier avec channel NIO2";
+
 }

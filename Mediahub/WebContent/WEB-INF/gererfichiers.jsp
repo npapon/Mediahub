@@ -12,16 +12,22 @@
 </head>
 <body>
     <form method="post">
-                <table id="table">
-                        <caption id="tablebis">Images de profil</caption>
+                <table >
+               
+                        <caption>Images de profil
+                        <br/>
+                        dossier :  ${dossierrangementimagesprofil}
+                        </caption>
                         <br />
-                        <br />
+                        <br />  
+                    
                         <tr>
                                 <th>INDEX</th>
                                 <th>LIBELLE</th>
                                 <th>IMAGE</th>
                                 <th>SUPPRIMER</th>
                         </tr>
+                        
        
                         <c:forEach var="entry" items="${imagesprofil}" varStatus="status">
                                 <tr id="supprimerligne">
@@ -41,13 +47,49 @@
                                 </tr>
                         </c:forEach>
                 </table>
-                 <input type="text" id="imagesasupprimer" name="imagesasupprimer" value="" size="20" maxlength="60" />
+           
+        <br/>
+        <br/>
+</table>
+
+                <table>
+               
+                        <caption>Fichiers Text
+                        <br/>
+                        dossier :  ${dossierrangementfichierstext}
+                        </caption>
+                        <br />
+                        <br />  
+                    
+                        <tr>
+                                <th>INDEX</th>
+                                <th>LIBELLE</th>
+                                <th>FICHIER</th>
+                                <th>SUPPRIMER</th>
+                        </tr>
+                        
+       
+                        <c:forEach var="entry" items="${fichierstext}" varStatus="status">
+                                <tr id="supprimerligne">
+                                        <td id="${status.index}">${status.index}</td>
+                                        <td><c:out value="${entry.pathNomFichier}"/></td>
+                                        <td>
+                                        <a href="<c:out value='${entry.path}'/>">
+                                  
+                                        </a>
+                                        </td>
+                                        <td><button id="${entry.pathNomFichier}" type='button' class="supprimer">
+                                                        <img src="<c:out value='img/supprimer.png'/>" title="supprimer" alt="supprimer">
+                                                </button></td>
+                                </tr>
+                        </c:forEach>
+                </table>
+                 <input type="text" id="elementsasupprimer" name="elementsasupprimer" value="" size="20" />
                 <br /> <br /> <input type="submit" value="Valider suppression" class="sansLabel" id="submit" /> 
                 
                 <a href="<c:out value='${gererfichiersvue}'/>"><input type="button" value="Annuler suppression" id="annulersuppression" /></a>
         </form>
-        <script src="<c:url value='/js/gererfichiers.js'/>" type="text/javascript"></script>
-
 </table>
+   <script src="<c:url value='/js/gererfichiers.js'/>" type="text/javascript"></script>
 </body>
 </html>

@@ -134,10 +134,13 @@ caption {
 	color: blue;
 	font-weight: bold;
 	font: normal 10pt verdana, helvetica, sans-serif;
+	
+
 }
 
 td, th {
 	font: normal 8pt verdana, helvetica, sans-serif;
+	width:50%;
 }
 
 /* bouton -------------------------------------------------------------------------- */

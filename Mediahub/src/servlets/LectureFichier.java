@@ -21,7 +21,7 @@ public class LectureFichier extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         LecteurFichier lecteurfichier = new LecteurFichier();
-        Fichier fichier = lecteurfichier.lireFichier( "nico.txt", Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+        Fichier fichier = lecteurfichier.lireFichier( "nico.txt", Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERLU, fichier );
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_LECTUREFICHIER ).forward( request,

@@ -21,7 +21,7 @@ public class LecteurFichierFileChannel extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         LecteurFichierFileChannelBean lecteurFichierFileChannelBean = new LecteurFichierFileChannelBean();
         Fichier fichier = lecteurFichierFileChannelBean.lireFichierFileChannelBean( "nigros.txt",
-                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERS );
+                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERLU, fichier );
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_LIREFICHIERAVECFILECHANNEL )

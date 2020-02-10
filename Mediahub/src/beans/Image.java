@@ -4,6 +4,7 @@ public class Image {
 
     private String libelle;
     private String type;
+    private String dossierRangement;
     private String emplacement;
 
     public String getLibelle() {

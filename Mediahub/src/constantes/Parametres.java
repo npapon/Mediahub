@@ -9,7 +9,7 @@ public class Parametres {
     public static final String CONSTANTE_PARAMETRE_CODE_SCRIPT              = "codescript";
     public static final String CONSTANTE_PARAMETRE_LIBELLE_SCRIPT           = "libellescript";
     public static final String CONSTANTE_PARAMETRE_SCRIPTS_A_SUPPRIMER      = "scriptsasupprimer";
-    public static final String CONSTANTE_PARAMETRE_IMAGES_A_SUPPRIMER       = "imagesasupprimer";
+    public static final String CONSTANTE_PARAMETRE_ELEMENTS_A_SUPPRIMER     = "elementsasupprimer";
     public static final String CONSTANTE_PARAMETRE_ACTIONSCRIPT             = "actionscript";
     public static final String CONSTANTE_PARAMETRE_ACTIONSCRIPT_VALUE_CREER = "creer";
     public static final String CONSTANTE_PARAMETRE_CODESCRIPTAMODIFIER      = "codescriptamodifier";

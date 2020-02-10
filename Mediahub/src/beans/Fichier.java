@@ -1,5 +1,7 @@
 package beans;
 
+import java.nio.file.Path;
+
 import javax.servlet.http.Part;
 
 public class Fichier {
@@ -7,9 +9,13 @@ public class Fichier {
     private String nom;
     private String description;
     private String chemin;
+    private Path   path;
     private String type;
     private String contenu;
     private Part   parametresFichier;
+    private String dossierRangement;
+
+    private Path   pathNomFichier;
 
     public String getNom() {
         return nom;
@@ -57,6 +63,30 @@ public class Fichier {
 
     public void setContenu( String contenu ) {
         this.contenu = contenu;
+    }
+
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath( Path path ) {
+        this.path = path;
+    }
+
+    public Path getPathNomFichier() {
+        return pathNomFichier;
+    }
+
+    public void setPathNomFichier( Path pathNomFichier ) {
+        this.pathNomFichier = pathNomFichier;
+    }
+
+    public String getDossierRangement() {
+        return dossierRangement;
+    }
+
+    public void setDossierRangement( String dossierRangement ) {
+        this.dossierRangement = dossierRangement;
     }
 
 }

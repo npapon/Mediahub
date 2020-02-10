@@ -10,25 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Fichier;
-import beans.LecteurFichierFileReaderBean;
+import beans.LectureFichierChannelNio2;
 import constantes.Attributs;
 import constantes.Repertoires;
 import constantes.Vues;
 
-/**
- * Servlet implementation class LecteurFichierFIleReader
- */
-@WebServlet( "/LecteurFichierFileReader" )
-public class LecteurFichierFileReader extends HttpServlet {
+@WebServlet( "/lecteurFichierChannelNio2" )
+public class LecteurFichierChannelNio2 extends HttpServlet {
 
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        LecteurFichierFileReaderBean lecteurFichierFileReaderBean = new LecteurFichierFileReaderBean();
-        Fichier fichier = lecteurFichierFileReaderBean.lireFichierFileReaderBean( "nigros.txt",
+        LectureFichierChannelNio2 lectureFichierChannelNio2Bean = new LectureFichierChannelNio2();
+        Fichier fichier = lectureFichierChannelNio2Bean.lireFichierChannelNio2Bean( "nigros.txt",
                 Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSTEXT );
         HttpSession session = request.getSession();
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERLU, fichier );
-        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_LIREFICHIERAVECFILEREADER ).forward( request,
-                response );
+        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_LIREFICHIERAVECFILECHANNEL )
+                .forward( request,
+                        response );
     }
 
 }

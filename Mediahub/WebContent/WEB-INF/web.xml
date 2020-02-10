@@ -187,6 +187,15 @@
     <servlet-name>EcrireGenererFichierTextFileChannel</servlet-name>
     <url-pattern>/ecriregenererfichiertextfilechannel</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description>LecteurFichierChannelNio2</description>
+    <servlet-name>LecteurFichierChannelNio2</servlet-name>
+    <servlet-class>servlets.LecteurFichierChannelNio2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LecteurFichierChannelNio2</servlet-name>
+    <url-pattern>/lecteurfichierchannelnio2</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
@@ -217,8 +226,10 @@
     <url-pattern>/Lecteurfichierfilereader</url-pattern>
     <url-pattern>/lecteurfichierfilechannel</url-pattern>
     <url-pattern>/Lecteurfichierfilechannel</url-pattern>
-       <url-pattern>/ecriregenererfichiertextfilechannel</url-pattern>
+    <url-pattern>/ecriregenererfichiertextfilechannel</url-pattern>
     <url-pattern>/Ecriregenererfichiertextfilechannel</url-pattern>
+    <url-pattern>/lecteurfichierchannelnio2</url-pattern>
+    <url-pattern>/Lecteurfichierchannelnio2</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
