@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LECTURE FICHIER CHANNEL NIO2</title>
+<title>LECTURE FICHIER AVEC CHANNEL NIO2</title>
 </head>
 <body>
 Fichier : ${fichierlu.nom}
