@@ -1,49 +1,48 @@
-
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.SeekableByteChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
+import beans.Date;
+import beans.GererZip;
 
 public class Main {
     public static void main( String[] args ) throws IOException {
-        // le buffer est prêt pour la lecture
 
-        Path path = Paths.get( "C:\\Users\\npapo\\git\\Mediahub\\Mediahub\\WebContent\\fichiers\\leclown.txt" );
-        // SeekableByteChannel ouvre un fichier à lire (c'est le channel qui lit
-        // le path)
+        GererZip gererZip = new GererZip();
+        gererZip.creerZip( "C:\\Users\\npapo\\git\\Mediahub\\Mediahub\\WebContent\\fichiers\\newzip12.zip" );
+        File fichier = new File( "C:\\Users\\npapo\\git\\Mediahub\\Mediahub\\WebContent\\fichiers\\newzip10.zip" );
 
-        SeekableByteChannel seekableByteChannel = Files.newByteChannel( path );
-        int taille = (int) seekableByteChannel.size();
-        ByteBuffer bytebuffer = ByteBuffer.allocate( taille );
-        System.out.println( "Position / capacité : " + bytebuffer.position() + "/" + bytebuffer.limit() );
+        // ouverture d'un flux Zip sur ce fichier
+        ZipOutputStream zipOutputStream = new ZipOutputStream( new FileOutputStream( fichier ) );
 
-        String fichierlu = "";
-        /*
-         * FileChannel‘s read() lit les bites du bytebuffer. la méthode retourne
-         * le nombre de bite lu ou -1 quand c'est fini
-         */
+        // création d'un répertoire : il s'agit d'une entrée dont le nom
+        // se termine par un /
+        ZipEntry entry = new ZipEntry( "vide/" );
 
-        seekableByteChannel.read( bytebuffer );
-        System.out.println( "Position / capacité : " + bytebuffer.position() + "/" + bytebuffer.limit() );
+        zipOutputStream.putNextEntry( entry );
 
-        bytebuffer.flip();
-        System.out.println( "Position / capacité : " + bytebuffer.position() + "/" + bytebuffer.limit() );
-        for ( int j = 0; j < taille; j++ ) {
-            fichierlu += (char) bytebuffer.get();
-        }
+        // création d'un autre répertoire
+        entry = new ZipEntry( "test.txt" );
+        zipOutputStream.putNextEntry( entry );
+        entry = new ZipEntry( "vide/test.txt" );
 
-        System.out.println( fichierlu );
-        bytebuffer.clear();
+        zipOutputStream.putNextEntry( entry );
+        entry = new ZipEntry( "bonjour/Bonjour-2.txt" );
+        zipOutputStream.putNextEntry( entry );
+        // création d'un fichier Bonjour-1.txt dans ce répertoire
+        entry = new ZipEntry( "bonjour/Bonjour-3.txt" );
+        zipOutputStream.putNextEntry( entry );
 
-        System.out.println( "Position / capacité : " + bytebuffer.position() + "/" + bytebuffer.limit() );
-        seekableByteChannel = Files.newByteChannel( path, StandardOpenOption.WRITE );
-        String ecrasertextfichier = "Salut coquin ";
-        seekableByteChannel.write( ByteBuffer.wrap( ecrasertextfichier.getBytes() ) );
-        System.out.println( "Position / capacité : " + bytebuffer.position() + "/" + bytebuffer.limit() );
-        seekableByteChannel.close();
+        // ouverture d'un flus de date sur le zip pour écrire dedans
+        // écrit dans le dernier entry
+        DataOutputStream dataOutputStream = new DataOutputStream( zipOutputStream );
+        Date date = new Date();
 
+        dataOutputStream.writeBytes( "Fichier zip créé le " + date.dateNowFormatString() );
+        zipOutputStream.close();
+        dataOutputStream.close();
     }
 }

@@ -13,4 +13,5 @@ public class MessagesErreur {
     public static final String CONSTANTE_ERREUR_NOMFICHIER             = "Aucun fichier n'a été ajouté";
     public static final String CONSTANTE_ERREUR_DOSSIERIMAGESPROFIL    = "le dossier images profil est vide ou n'existe pas";
     public static final String CONSTANTE_ERREUR_LONGUEURNOMFICHIER     = "Le nom du fichier doit faire plus de 3 caractères";
+    public static final String CONSTANTE_ERREUR_NOMZIP                 = "Le zip existe déjà";
 }

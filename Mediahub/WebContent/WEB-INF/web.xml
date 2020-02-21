@@ -196,7 +196,7 @@
     <servlet-name>LecteurFichierChannelNio2</servlet-name>
     <url-pattern>/lecteurfichierchannelnio2</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description>EcrireFichierChannelNio2</description>
     <servlet-name>EcrireFichierChannelNio2</servlet-name>
     <servlet-class>servlets.EcrireFichierChannelNio2</servlet-class>
@@ -204,6 +204,24 @@
   <servlet-mapping>
     <servlet-name>EcrireFichierChannelNio2</servlet-name>
     <url-pattern>/ecrirefichierchannelnio2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>GestionnaireDeZipServlet</description>
+    <servlet-name>GestionnaireDeZipServlet</servlet-name>
+    <servlet-class>servlets.GestionnaireDeZipServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionnaireDeZipServlet</servlet-name>
+    <url-pattern>/gestionnairedezip</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description>FichierZipCreeServlet</description>
+    <servlet-name>FichierZipCreeServlet</servlet-name>
+    <servlet-class>servlets.FichierZipCreeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FichierZipCreeServlet</servlet-name>
+    <url-pattern>/fichierzipcree</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
@@ -239,9 +257,12 @@
     <url-pattern>/Ecriregenererfichiertextfilechannel</url-pattern>
     <url-pattern>/lecteurfichierchannelnio2</url-pattern>
     <url-pattern>/Lecteurfichierchannelnio2</url-pattern>
-        <url-pattern>/ecrirefichierchannelnio2</url-pattern>
     <url-pattern>/ecrirefichierchannelnio2</url-pattern>
-  
+    <url-pattern>/Ecrirefichierchannelnio2</url-pattern>
+    <url-pattern>/gestionnairedezip</url-pattern>
+    <url-pattern>/Gestionnairedezip</url-pattern>
+       <url-pattern>/fichierzipcree</url-pattern>
+    <url-pattern>/Fichierzipcree</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

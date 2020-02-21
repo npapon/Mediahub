@@ -63,5 +63,11 @@ public class Vues {
     public static final String CONSTANTE_VUE_ECRIREFICHIERAVECCHANNELNIO2                    = "/WEB-INF/ecrirefichierchannelnio2.jsp";
     public static final String CONSTANTE_VUE_ECRIREFICHIERAVECCHANNELNIO2_NOMCOURT           = "ecrirefichierchannelnio2";
     public static final String CONSTANTE_VUE_ECRIREFICHIERCHANNELNIO2_DESCRIPTION            = "Ecrire un fichier avec channel NIO2";
+    public static final String CONSTANTE_VUE_GESTIONNAIREDEZIP                               = "/WEB-INF/gestionnairedezip.jsp";
+    public static final String CONSTANTE_VUE_GESTIONNAIREDEZIP_NOMCOURT                      = "gestionnairedezip";
+    public static final String CONSTANTE_VUE_GESTIONNAIREDEZIP_DESCRIPTION                   = "Gérer un fichiez zip";
+    public static final String CONSTANTE_VUE_FICHIERZIPCREE                                  = "/WEB-INF/fichierzipcree.jsp";
+    public static final String CONSTANTE_VUE_FICHIERZIPCREE_NOMCOURT                         = "fichierzipcree";
+    public static final String CONSTANTE_VUE_FICHIERZIPCREE_DESCRIPTION                      = "Données du zip créé";
 
 }

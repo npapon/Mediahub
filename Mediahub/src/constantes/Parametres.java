@@ -18,5 +18,6 @@ public class Parametres {
     public static final String CONSTANTE_PARAMETRE_FICHIER                  = "fichier";
     public static final String CONSTANTE_PARAMETRE_TEXTTAPE                 = "texttape";
     public static final String CONSTANTE_PARAMETRE_NOMFICHIER               = "nomfichier";
+    public static final String CONSTANTE_PARAMETRE_CREERZIP                 = "creerzip";
 
 }

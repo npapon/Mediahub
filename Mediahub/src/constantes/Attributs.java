@@ -19,6 +19,7 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_FICHIERLU                    = "fichierlu";
     public static final String CONSTANTE_ATTRIBUT_FICHIERECRI                  = "fichierecri";
     public static final String CONSTANTE_ATTRIBUT_FICHIERCREE                  = "fichiercree";
+    public static final String CONSTANTE_ATTRIBUT_FICHIERZIPCREE               = "fichierzipcree";
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTIMAGESPROFIL = "dossierrangementimagesprofil";
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTFICHIERSTEXT = "dossierrangementfichierstext";
 }

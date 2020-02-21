@@ -33,6 +33,9 @@ public class MenuEditeur {
                 Vues.CONSTANTE_VUE_LIREFICHIERAVECCHANNELNIO2_NOMCOURT );
         menuediteur.put( Vues.CONSTANTE_VUE_ECRIREFICHIERCHANNELNIO2_DESCRIPTION,
                 Vues.CONSTANTE_VUE_ECRIREFICHIERAVECCHANNELNIO2_NOMCOURT );
+        menuediteur.put( Vues.CONSTANTE_VUE_GESTIONNAIREDEZIP_DESCRIPTION,
+                Vues.CONSTANTE_VUE_GESTIONNAIREDEZIP_NOMCOURT );
+
         return menuediteur;
 
     }

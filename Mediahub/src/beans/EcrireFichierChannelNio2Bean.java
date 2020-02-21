@@ -39,6 +39,7 @@ public class EcrireFichierChannelNio2Bean {
             seekablebytechannel = Files.newByteChannel( path, StandardOpenOption.WRITE );
 
             seekablebytechannel.write( ByteBuffer.wrap( textTape.getBytes() ) );
+
             seekablebytechannel.close();
 
         } catch ( IOException e ) {
