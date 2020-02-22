@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 import java.nio.file.FileSystem;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,12 +28,16 @@ public class GestionnaireDeZipServlet extends HttpServlet {
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         GererZip gererZip = new GererZip();
-        Map<FileSystem, Boolean> map = gererZip.definirFileSystemZip( request,
+        gererZip.creerZip( request,
                 Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSZIP,
                 Parametres.CONSTANTE_PARAMETRE_CREERZIP );
-        System.out.println( map );
+
+        FileSystem fileSystemDuZip = gererZip.definirFileSystemZip( request,
+                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_FICHIERSZIP,
+                Parametres.CONSTANTE_PARAMETRE_CREERZIP );
+        System.out.println( fileSystemDuZip.getRootDirectories() );
         HttpSession session = request.getSession();
-        session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERZIPCREE, map );
+        session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_FICHIERZIPCREE, "t" );
 
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_FICHIERZIPCREE ).forward( request,
                 response );

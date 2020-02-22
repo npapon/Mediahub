@@ -6,29 +6,34 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.FileSystem;
+import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 
+import constantes.Fichiers;
+import constantes.Messages;
 import constantes.MessagesErreur;
 
 public class GererZip {
 
     List<String> erreurs = new ArrayList<String>();
 
-    public void creerZip( String emplacement ) {
+    public void creerZip( HttpServletRequest request, String repertoire, String nomZip ) {
 
-        File file = new File( emplacement );
+        FichierAvecExtension fichier = new FichierAvecExtension();
+        fichier.setNomAvecExtension( request.getParameter( nomZip ), "zip" );
+        nomZip = fichier.getNom();
+        String cheminZip = repertoire + "\\" + nomZip;
+        File file = new File( cheminZip );
         verifierExistanceZip( file );
 
         FileOutputStream fileOutputStream;
@@ -38,12 +43,12 @@ public class GererZip {
             fileOutputStream = new FileOutputStream( file );
             zipOutputStream = new ZipOutputStream( fileOutputStream );
 
-            ZipEntry zipEntry = new ZipEntry( "info.txt" );
+            ZipEntry zipEntry = new ZipEntry( Fichiers.CONSTANTE_NOMFICHIERZIPCREEPARDEFAUT );
             zipOutputStream.putNextEntry( zipEntry );
             dataOutputStream = new DataOutputStream( zipOutputStream );
             Date date = new Date();
 
-            dataOutputStream.writeBytes( "Fichier zip créé le " + date.dateNowFormatString() );
+            dataOutputStream.writeBytes( Messages.CONSTANTE_MESSAGE_FICHIERCREEPARDEFAUTAVECLEZIP + date.dateNowFormatString() );
             zipOutputStream.close();
             dataOutputStream.close();
             zipOutputStream.close();
@@ -78,82 +83,38 @@ public class GererZip {
 
     }
 
-    public Map definirFileSystemZip( HttpServletRequest request, String repertoire, String nomZip )
+    public FileSystem definirFileSystemZip( HttpServletRequest request, String repertoire, String nomZip )
 
     {
-        Boolean fichierDejaExistant;
-        Map<FileSystem, Boolean> map = new HashMap<FileSystem, Boolean>();
         FichierAvecExtension fichier = new FichierAvecExtension();
         fichier.setNomAvecExtension( request.getParameter( nomZip ), "zip" );
         nomZip = fichier.getNom();
+
         String cheminZip = repertoire + "\\" + nomZip;
-        Path path = Paths.get( cheminZip );
-        if ( !Files.exists( Paths.get( cheminZip ) ) ) {
+
+        try {
+            FileSystem fileSystem = null;
+
             try {
-                FileSystem fileSystem = null;
-                Files.createFile( Paths.get( cheminZip ) );
+                fileSystem = FileSystems.newFileSystem(
+                        Paths.get( cheminZip ), null );
 
-                try {
-                    fileSystem = FileSystems.newFileSystem(
-                            Paths.get( cheminZip ), null );
-
-                    map.put( fileSystem, true );
-                    fileSystem.close();
-                } catch ( ZipException e ) {
-                    e.printStackTrace();
-                } finally {
-                    fichierDejaExistant = true;
-                    map.put( fileSystem, true );
-                    System.out.println( "ouch" + map );
-
-                }
-
-                return map;
-            } catch ( IOException e ) {
-                // TODO Auto-generated catch block
-
+                fileSystem.close();
+            } catch ( ZipException e ) {
                 e.printStackTrace();
-            }
-        } else {
-            try {
-                FileSystem fileSystem = null;
-
-                try {
-                    fileSystem = FileSystems.newFileSystem(
-                            Paths.get( cheminZip ), null );
-                    System.out.println( "filesystem 2" + fileSystem );
-                    map.put( fileSystem, false );
-                    fileSystem.close();
-                } catch ( ZipException e ) {
-                    e.printStackTrace();
-                } finally {
-                    fichierDejaExistant = false;
-                    map.put( fileSystem, false );
-                    System.out.println( "pasouch" + map );
-
-                }
-
-                return map;
-            } catch ( IOException e ) {
-                // TODO Auto-generated catch block
+            } catch ( FileSystemNotFoundException e ) {
                 e.printStackTrace();
+                System.out.println( "Le fichier n'existe pas " + cheminZip );
             }
 
+            return fileSystem;
+        } catch ( IOException e ) {
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
         }
 
         return null;
-    }
-
-    public FichierAvecExtension creerUnFichierZip( HttpServletRequest request, String champFormulaireSaisieNom ) {
-
-        FichierAvecExtension fichierZip = new FichierAvecExtension();
-
-        // Parametres.CONSTANTE_PARAMETRE_NOMFICHIER
-        String nom = request.getParameter( champFormulaireSaisieNom );
-
-        fichierZip.setNomAvecExtension( nom, "zip" );
-
-        return fichierZip;
     }
 
     public void supprimerUnFichierDuFileSystem( FileSystem fileSystemduzip, FichierAvecExtension fichier ) {
