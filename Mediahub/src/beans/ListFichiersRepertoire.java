@@ -10,20 +10,23 @@ import java.util.List;
 
 public class ListFichiersRepertoire {
 
-    public List<Fichier> retournerFichiersText( String type, String repertoireAbsolu, String extensionFichier ) {
-        List<Fichier> fichiersText = new ArrayList<Fichier>();
-        Path dossierFichiersText = Paths.get( repertoireAbsolu );
+    public List<Fichier> retournerFichiers( String repertoireAbsolu, String extensionFichier ) {
+        List<Fichier> fichiers = new ArrayList<Fichier>();
+        Path dossierFichiers = Paths.get( repertoireAbsolu );
 
         try {
-            DirectoryStream<Path> stream = Files.newDirectoryStream( dossierFichiersText );
+            DirectoryStream<Path> stream = Files.newDirectoryStream( dossierFichiers );
 
             for ( Path path : stream ) {
-                if ( path.getFileName().endsWith( ".txt" ) ) {
-                    Fichier fichierText = new Fichier();
-                    fichierText.setType( type );
-                    fichierText.setPath( path );
-                    fichierText.setPathNomFichier( path.getFileName() );
-                    fichiersText.add( fichierText );
+                if ( path.getFileName().toString().endsWith( extensionFichier ) ) {
+
+                    Fichier fichier = new Fichier();
+
+                    fichier.setPath( path );
+                    fichier.setPathNomFichier( path.getFileName() );
+                    fichier.setNom( path.getFileName().toString() );
+
+                    fichiers.add( fichier );
                 }
             }
 
@@ -32,7 +35,7 @@ public class ListFichiersRepertoire {
             e.printStackTrace();
 
         }
-        return fichiersText;
+        return fichiers;
 
     }
 

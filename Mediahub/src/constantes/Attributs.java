@@ -13,6 +13,7 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_LIENDECONNEXION              = "deconnexion";
     public static final String CONSTANTE_ATTRIBUT_LISTESCRIPTSVUE              = "listescriptsvue";
     public static final String CONSTANTE_ATTRIBUT_GERERFICHIERSVUE             = "gererfichiersvue";
+    public static final String CONSTANTE_ATTRIBUT_GERERZIPSVUE                 = "gererzipvue";
     public static final String CONSTANTE_ATTRIBUT_FICHIER                      = "fichier";
     public static final String CONSTANTE_ATTRIBUT_IMAGESPROFIL                 = "imagesprofil";
     public static final String CONSTANTE_ATTRIBUT_FICHIERSTEXT                 = "fichierstext";
@@ -20,6 +21,7 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_FICHIERECRI                  = "fichierecri";
     public static final String CONSTANTE_ATTRIBUT_FICHIERCREE                  = "fichiercree";
     public static final String CONSTANTE_ATTRIBUT_FICHIERZIPCREE               = "fichierzipcree";
+    public static final String CONSTANTE_ATTRIBUT_LISTE_ERREURS_CREATION_ZIP   = "erreurscreationzip";
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTIMAGESPROFIL = "dossierrangementimagesprofil";
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTFICHIERSTEXT = "dossierrangementfichierstext";
 }

@@ -31,7 +31,6 @@
                         <tr>
                                 <th>INDEX</th>
                                 <th>LIBELLE</th>
-                                <th>FICHIER</th>
                                 <th>SELECTION</th>
                         </tr>
                         
@@ -40,23 +39,18 @@
                                 <tr id="supprimerligne">
                                         <td id="${status.index}">${status.index}</td>
                                         <td><c:out value="${entry.pathNomFichier}"/></td>
+                               
                                         <td>
-                                        <a href="<c:out value='${entry.path}'/>">
-                                  
-                                        </a>
-                                        </td>
-                                        <td><button id="${entry.pathNomFichier}" type='button' class="supprimer">
-                                                        <img src="<c:out value='img/supprimer.png'/>" title="supprimer" alt="supprimer">
-                                                </button></td>
+                                        <input type="checkbox" name="cochee" id="${entry.pathNomFichier}"/></td>
                                 </tr>
                         </c:forEach>
                 </table>
-                 <input type="text" id="elementsasupprimer" name="elementsasupprimer" value="" size="20" />
+                 <input type="text" id="elementsacocher" name="elementsacocher" value="" size="20" />
                 <br /> <br /> <input type="submit" value="Creer le Zip" class="sansLabel" id="submit" /> 
                 
-                <a href="<c:out value='${gererfichiersvue}'/>"><input type="button" value="Annuler" id="annuler" /></a>
+                <a href="<c:out value='${gererzipvue}'/>"><input type="button" value="Annuler" id="annuler" /></a>
         </form>
 </table>
-   <script src="<c:url value='/js/gererfichiers.js'/>" type="text/javascript"></script>
+   <script src="<c:url value='/js/gererzip.js'/>" type="text/javascript"></script>
 </body>
 </html>

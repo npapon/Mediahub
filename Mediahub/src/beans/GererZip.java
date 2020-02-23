@@ -9,6 +9,7 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -22,12 +23,13 @@ import javax.servlet.http.HttpServletRequest;
 import constantes.Fichiers;
 import constantes.Messages;
 import constantes.MessagesErreur;
+import constantes.MessagesSucces;
 
 public class GererZip {
 
     List<String> erreurs = new ArrayList<String>();
 
-    public void creerZip( HttpServletRequest request, String repertoire, String nomZip ) {
+    public FichierAvecExtension creerZip( HttpServletRequest request, String repertoire, String nomZip ) {
 
         FichierAvecExtension fichier = new FichierAvecExtension();
         fichier.setNomAvecExtension( request.getParameter( nomZip ), "zip" );
@@ -52,6 +54,8 @@ public class GererZip {
             zipOutputStream.close();
             dataOutputStream.close();
             zipOutputStream.close();
+            System.out.println( MessagesSucces.CONSTANTE_SUCCES_CREATIONZIP + cheminZip );
+            return fichier;
         } catch ( FileNotFoundException e ) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -68,6 +72,7 @@ public class GererZip {
             }
 
         }
+        return null;
 
     }
 
@@ -99,12 +104,16 @@ public class GererZip {
                 fileSystem = FileSystems.newFileSystem(
                         Paths.get( cheminZip ), null );
 
-                fileSystem.close();
+                System.out.println( MessagesSucces.CONSTANTE_SUCCES_CREATIONFILESYSTEM + fileSystem );
+
             } catch ( ZipException e ) {
                 e.printStackTrace();
+
             } catch ( FileSystemNotFoundException e ) {
                 e.printStackTrace();
-                System.out.println( "Le fichier n'existe pas " + cheminZip );
+
+                System.out.println( MessagesErreur.CONSTANTE_ERREUR_FILESYSTEMINTROUVABLE + cheminZip );
+                erreurs.add( MessagesErreur.CONSTANTE_ERREUR_FILESYSTEMINTROUVABLE + cheminZip );
             }
 
             return fileSystem;
@@ -115,6 +124,33 @@ public class GererZip {
         }
 
         return null;
+    }
+
+    public void deplacerLesFichiersDansLeZip( HttpServletRequest request, String parametreListantElements,
+            String repertoireDesElementsADeplacer,
+            FileSystem fileSystemDuZip ) {
+
+        String elementsadeplacer = request.getParameter( parametreListantElements );
+        String[] elementsadeplacerTableau = elementsadeplacer.split( "," );
+
+        for ( String elementlibelle : elementsadeplacerTableau ) {
+
+            Path path = Paths.get( repertoireDesElementsADeplacer + "/" + elementlibelle );
+
+            try {
+                Files.copy( path, fileSystemDuZip.getPath( elementlibelle ) );
+
+            } catch ( NoSuchFileException e ) {
+                e.printStackTrace();
+                System.out.println( MessagesErreur.CONSTANTE_ERREUR_ELEMENT_INEXISTANT_TABLEAU + path.getFileName() );
+                erreurs.add( MessagesErreur.CONSTANTE_ERREUR_ELEMENT_INEXISTANT_TABLEAU + path.getFileName() );
+            } catch ( IOException e ) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
     public void supprimerUnFichierDuFileSystem( FileSystem fileSystemduzip, FichierAvecExtension fichier ) {
@@ -142,6 +178,10 @@ public class GererZip {
             e.printStackTrace();
         }
 
+    }
+
+    public List<String> getErreurs() {
+        return this.erreurs;
     }
 
 }
