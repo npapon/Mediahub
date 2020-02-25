@@ -214,7 +214,7 @@
     <servlet-name>GestionnaireDeZipServlet</servlet-name>
     <url-pattern>/gestionnairedezip</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description>FichierZipCreeServlet</description>
     <servlet-name>FichierZipCreeServlet</servlet-name>
     <servlet-class>servlets.FichierZipCreeServlet</servlet-class>
@@ -222,6 +222,15 @@
   <servlet-mapping>
     <servlet-name>FichierZipCreeServlet</servlet-name>
     <url-pattern>/fichierzipcree</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description>ProfilPropre</description>
+    <servlet-name>ProfilPropre</servlet-name>
+    <servlet-class>servlets.ProfilPropre</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfilPropre</servlet-name>
+    <url-pattern>/profilpropre</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
@@ -261,8 +270,10 @@
     <url-pattern>/Ecrirefichierchannelnio2</url-pattern>
     <url-pattern>/gestionnairedezip</url-pattern>
     <url-pattern>/Gestionnairedezip</url-pattern>
-       <url-pattern>/fichierzipcree</url-pattern>
+    <url-pattern>/fichierzipcree</url-pattern>
     <url-pattern>/Fichierzipcree</url-pattern>
+    <url-pattern>/profilpropre</url-pattern>
+    <url-pattern>/Profilpropre</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>

@@ -1,17 +1,16 @@
-import java.util.List;
-
-import beans.Fichier;
-import beans.ListFichiersRepertoire;
-
 public class Main {
     public static void main( String[] args ) {
 
-        ListFichiersRepertoire listFichiersRepertoire = new ListFichiersRepertoire();
-        List<Fichier> listFichiersTxt = listFichiersRepertoire
-                .retournerFichiers( "C:\\Users\\npapo\\git\\Mediahub\\Mediahub\\WebContent\\fichiers", "txt" );
-        System.out.println( listFichiersTxt );
+        String enteteRequetePostContentDisposition = " Content-Disposition: form-data;name=\"fich;ier\"; filename=\"nom_du_fichier.ext\"";
+        String nomFichierImage;
+        for ( String coupleAttributValeur : enteteRequetePostContentDisposition.split( ";" ) ) {
+            if ( coupleAttributValeur.trim().startsWith( "filename" ) ) {
+                nomFichierImage = coupleAttributValeur.substring( coupleAttributValeur.indexOf( "\"" ),
+                        coupleAttributValeur.lastIndexOf( "\"" ) );
+                System.out.println( "Nom du fichier de l'image " + nomFichierImage );
 
-        System.out.println( "helloworld.txt".endsWith( "txt" ) );
+            }
+        }
 
     }
 }
