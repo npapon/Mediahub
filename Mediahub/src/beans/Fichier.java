@@ -12,7 +12,7 @@ public class Fichier {
     private Path   path;
     private String type;
     private String contenu;
-    private Part   parametresFichier;
+    private Part   fichierPhysique;
     private String dossierRangement;
 
     private Path   pathNomFichier;
@@ -41,12 +41,12 @@ public class Fichier {
         this.chemin = chemin;
     }
 
-    public Part getParametresFichier() {
-        return parametresFichier;
+    public Part getFichierPhysique() {
+        return fichierPhysique;
     }
 
-    public void setParametresFichier( Part parametresFichier ) {
-        this.parametresFichier = parametresFichier;
+    public void setFichierPhysique( Part fichierPhysique ) {
+        this.fichierPhysique = fichierPhysique;
     }
 
     public String getType() {

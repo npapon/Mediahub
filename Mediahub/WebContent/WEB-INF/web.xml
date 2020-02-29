@@ -227,11 +227,18 @@
     <description>ProfilPropre</description>
     <servlet-name>ProfilPropre</servlet-name>
     <servlet-class>servlets.ProfilPropre</servlet-class>
+     <multipart-config>
+      <location>C:\Users\npapo\git\Mediahub\Mediahub</location>
+      <max-file-size>10485760</max-file-size>
+      <max-request-size>52428800</max-request-size>
+      <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProfilPropre</servlet-name>
     <url-pattern>/profilpropre</url-pattern>
   </servlet-mapping>
+  <!--
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
@@ -275,6 +282,7 @@
     <url-pattern>/profilpropre</url-pattern>
     <url-pattern>/Profilpropre</url-pattern>
   </filter-mapping>
+  -->
   <filter>
     <filter-name>Set Character Encoding</filter-name>
     <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>

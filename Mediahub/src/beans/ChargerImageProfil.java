@@ -1,5 +1,10 @@
 package beans;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
+import constantes.MessagesErreur;
 import constantes.Parametres;
+import constantes.Tampon;
 
 public class ChargerImageProfil {
     List<String> erreurs = new ArrayList<String>();
@@ -16,8 +23,6 @@ public class ChargerImageProfil {
     public Fichier chargerImageProfil( HttpServletRequest request ) {
 
         Fichier imageProfil = new Fichier();
-        String nomImage = request.getParameter( Parametres.CONSTANTE_PARAMETRE_NOMIMAGE );
-        imageProfil.setNom( nomImage );
 
         // getParts permet de récupérer les données envoyer dans un formulaire
         // de type type enctype="multipart/form-data" (fichiers, champs
@@ -30,6 +35,9 @@ public class ChargerImageProfil {
         try {
             // récupère le fichier
             Part part = request.getPart( Parametres.CONSTANTE_PARAMETRE_FICHIERIMAGE );
+            champContientUnFichier( part );
+            imageProfil.setFichierPhysique( part );
+
         } catch ( IOException | ServletException e ) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -52,7 +60,7 @@ public class ChargerImageProfil {
     // l'attribut de la requête
     // à récupérer
 
-    public Boolean champContientUnFichier( Part part ) {
+    public void champContientUnFichier( Part part ) {
 
         Boolean estUnFichier = null;
         String enteteRequetePostContentDisposition = part.getHeader( "Content-Disposition" );
@@ -62,21 +70,94 @@ public class ChargerImageProfil {
                 estUnFichier = true;
             }
         }
-        return estUnFichier;
+        if ( estUnFichier == false ) {
+            try {
+                throw ( new Exception( MessagesErreur.CONSTANTE_ERREUR_EXISTENCE_FICHIER_IMAGE ) );
+            } catch ( Exception e ) {
+                e.printStackTrace();
+                erreurs.add( e.getMessage() );
+            }
+        }
+
     }
 
     public String recupererNomFichierImage( Part part ) {
         String enteteRequetePostContentDisposition = part.getHeader( "Content-Disposition" );
+
         String nomFichierImage;
         for ( String coupleAttributValeur : enteteRequetePostContentDisposition.split( ";" ) ) {
             if ( coupleAttributValeur.trim().startsWith( "filename" ) ) {
-                nomFichierImage = coupleAttributValeur.substring( coupleAttributValeur.indexOf( "\"" ),
+
+                nomFichierImage = coupleAttributValeur.substring( coupleAttributValeur.lastIndexOf( "\\" ) + 1,
                         coupleAttributValeur.lastIndexOf( "\"" ) );
-                System.out.println( "Nom du fichier de l'image " + nomFichierImage );
+
                 return nomFichierImage;
             }
         }
         return null;
 
     }
+
+    public void verifierNomImageUtilisateur( String nomImageUtilisateur ) {
+        if ( nomImageUtilisateur.trim().length() <= 3 )
+
+        {
+            try {
+                throw ( new Exception( MessagesErreur.CONSTANTE_ERREUR_NOM_IMAGE_UTILISATEUR ) );
+            } catch ( Exception e ) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                erreurs.add( e.getMessage() );
+            }
+        }
+
+    }
+
+    public void enregistrerImageProfil( Part part, String chemin ) {
+        /* Prépare les flux. */
+
+        String nomFichier = this.recupererNomFichierImage( part );
+        System.out.println( "Fichier enregistré ici : " + chemin + "/" + nomFichier );
+        BufferedInputStream entree = null;
+        BufferedOutputStream sortie = null;
+        try {
+            /* Ouvre les flux. */
+            entree = new BufferedInputStream( part.getInputStream(), Tampon.CONSTANTE_TAILLE_TAMPON_10240 );
+
+            sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + "/" + nomFichier ) ),
+                    Tampon.CONSTANTE_TAILLE_TAMPON_10240 );
+
+            /*
+             * Lit le fichier reçu et écrit son contenu dans un fichier sur le
+             * disque.
+             */
+            byte[] tampon = new byte[Tampon.CONSTANTE_TAILLE_TAMPON_10240];
+            int longueur;
+            while ( ( longueur = entree.read( tampon ) ) > 0 ) {
+                sortie.write( tampon, 0, longueur );
+            }
+
+        }
+
+        catch ( FileNotFoundException e ) {
+            e.printStackTrace();
+        }
+
+        catch ( IOException e ) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        finally {
+            try {
+                sortie.close();
+            } catch ( IOException ignore ) {
+            }
+            try {
+                entree.close();
+            } catch ( IOException ignore ) {
+            }
+        }
+    }
+
 }

@@ -8,28 +8,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PROFIL PROPRE</title>
+<title>EDITER SON PROFIL</title>
 </head>
 <body>
+<img class ="imageprofil" src="<c:out value='${imageprofil.chemin}'/>"  title="profil" alt="Votre photo"/>
 
-<table>
-<tr><td>Login : </td><td><c:out value="${cookielogin.value}"/></td>
-<tr><td>Email : </td><td><c:out value="${cookieemail.value}"/></td>
-</table>
-<p>Votre compte a été créé il y a ${ecartdateformatverbeux}</p>
 
 <form method="post" enctype="multipart/form-data">
+
  <fieldset>
                 <legend>Charger sa photo</legend>
-                           <label for="nomimage">Nom de la photo de profil </label>
-                <input type="text" id="nomimage" name="nomimage" value="" />
-                <span class="succes"><c:out value="${image.description}"/></span>
-                <div class="erreur" id="erreurnomimage"></div>
-                <br />
+        
 
                 <label for="fichierimage">Charger la photo <span class="requis">*</span></label>
                 <input type="file" id="fichierimage" name="fichierimage" />
-                 <span class="succes"><c:out value="${image.nomfichier}"/></span>
+                 <span class="succes"><c:out value="${imageprofil.nom}"/></span>
                  <div class="erreur" id="erreurfichierimage"></div>
                 <br />
                 
@@ -38,5 +31,6 @@
 
 </fieldset>
 </form>
+   <script src="<c:url value='/js/profilpropre.js'/>" type="text/javascript"></script>
 </body>
 </html>

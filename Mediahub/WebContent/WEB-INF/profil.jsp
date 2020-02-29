@@ -11,7 +11,9 @@
 <title>PROFIL</title>
 </head>
 <body>
-<img src="<c:out value='img/profil/vache.jpg'/>"  title="profil" alt="Votre photo"/>
+
+
+<img src="<c:out value='/img/profil/vache.jpg'/>"  title="profil" alt="Votre photo"/>
 <table>
 <tr><td>Login : </td><td><c:out value="${cookielogin.value}"/></td>
 <tr><td>Email : </td><td><c:out value="${cookieemail.value}"/></td>

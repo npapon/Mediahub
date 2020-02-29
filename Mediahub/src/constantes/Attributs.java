@@ -15,6 +15,7 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_GERERFICHIERSVUE             = "gererfichiersvue";
     public static final String CONSTANTE_ATTRIBUT_GERERZIPSVUE                 = "gererzipvue";
     public static final String CONSTANTE_ATTRIBUT_FICHIER                      = "fichier";
+    public static final String CONSTANTE_ATTRIBUT_IMAGEPROFIL                  = "imageprofil";
     public static final String CONSTANTE_ATTRIBUT_IMAGESPROFIL                 = "imagesprofil";
     public static final String CONSTANTE_ATTRIBUT_FICHIERSTEXT                 = "fichierstext";
     public static final String CONSTANTE_ATTRIBUT_FICHIERLU                    = "fichierlu";

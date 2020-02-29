@@ -28,7 +28,7 @@ public class EnvoiFichiersForm {
         fichier.setDescription( description );
         // récupère le champ imput type="file"
         Part part = request.getPart( Parametres.CONSTANTE_PARAMETRE_FICHIER );
-        fichier.setParametresFichier( part );
+        fichier.setFichierPhysique( part );
 
         String nom = getNomFichier( part );
         verifierFichier( nom );

@@ -34,7 +34,7 @@ public class EnvoiFichiers extends HttpServlet {
                 Repertoires.CONSTANTE_REPERTOIRE_VARIABLE_CHEMIN ) );
         String chemin = fichier.getChemin();
 
-        envoifichiersform.ecrireFichier( fichier.getParametresFichier(), fichier.getNom(), chemin );
+        envoifichiersform.ecrireFichier( fichier.getFichierPhysique(), fichier.getNom(), chemin );
 
         this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_ENVOIFICHIERS ).forward( request, response );
     }

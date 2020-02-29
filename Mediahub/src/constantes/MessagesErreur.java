@@ -16,5 +16,6 @@ public class MessagesErreur {
     public static final String CONSTANTE_ERREUR_NOMZIP                     = "Le zip existe déjà";
     public static final String CONSTANTE_ERREUR_FILESYSTEMINTROUVABLE      = "Le fichier zip du filesystem n'existe pas";
     public static final String CONSTANTE_ERREUR_ELEMENT_INEXISTANT_TABLEAU = "Le fichier suivant n'existe pas : ";
-
+    public static final String CONSTANTE_ERREUR_NOM_IMAGE_UTILISATEUR      = "Le nom de l'image doit faire 3 caractères au moins";
+    public static final String CONSTANTE_ERREUR_EXISTENCE_FICHIER_IMAGE    = "L'image de profil n'a pas été chargée";
 }
