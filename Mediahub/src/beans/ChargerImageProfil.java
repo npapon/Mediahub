@@ -43,6 +43,11 @@ public class ChargerImageProfil {
             e.printStackTrace();
         }
 
+        catch ( IllegalStateException e ) {
+            e.printStackTrace();
+            System.out.println( "Le fichier est trop gros" );
+        }
+
         return imageProfil;
     }
 

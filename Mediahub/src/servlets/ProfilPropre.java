@@ -40,8 +40,8 @@ public class ProfilPropre extends HttpServlet {
         HttpSession session = request.getSession();
 
         session.setAttribute( Attributs.CONSTANTE_ATTRIBUT_IMAGEPROFIL, imageProfil );
-        this.getServletContext().getRequestDispatcher( Vues.CONSTANTE_VUE_PROFILPROPRE ).forward( request,
-                response );
+        response.sendRedirect( Vues.CONSTANTE_VUE_PROFILPROPRE_NOMCOURT );
+
     }
 
 }
