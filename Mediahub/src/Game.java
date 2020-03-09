@@ -16,4 +16,5 @@ public class Game implements Serializable {
         return "Ce jeu s'appelle " + this.name + "et coûte " + this.prix;
 
     }
+
 }

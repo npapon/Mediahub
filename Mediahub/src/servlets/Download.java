@@ -26,7 +26,7 @@ public class Download extends HttpServlet {
 
         // chemin c'est la ou on stocke les fichier
         String Chemin = this.getServletConfig().getInitParameter( "chemin" );
-        System.out.println( "chemin" ); // chemin
+        System.out.println( Chemin ); // chemin
         /*
          * Récupération du chemin du fichier demandé au sein de l'URL de la
          * requête
@@ -54,6 +54,7 @@ public class Download extends HttpServlet {
         // dossier fichiers) suivi de l'enfant
         // (fichier caca.jpg de l'url par exemple)
         // ce qui donne C:\fichiers\caca.jpg
+
         File file = new File( Chemin, fichierRequis );
         System.out.println( "chemin fichier à télécharger" + file.getAbsolutePath() );
 
@@ -63,7 +64,7 @@ public class Download extends HttpServlet {
             return;
 
         }
-        // recupere le type de fichier en prenant le nom en arguement
+        // recupere le type de fichier en prenant le nom en argument
         String type = request.getServletContext().getMimeType( file.getName() );
         System.out.println( "type fichier " + type );
         // si le type est null, on en met un par défaut

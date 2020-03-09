@@ -26,6 +26,7 @@
                                 <th>LIBELLE</th>
                                 <th>IMAGE</th>
                                 <th>SUPPRIMER</th>
+                                 <th>TELECHARGER</th>
                         </tr>
                         
        
@@ -41,9 +42,18 @@
                                         alt="<c:out value="${entry.libelle}"/>">
                                         </a>
                                         </td>
-                                        <td><button id="${entry.libelle}" type='button' class="supprimer">
+                                        <td><button id="${entry.libelle}" type='button' name="supprimer">
                                                         <img src="<c:out value='img/supprimer.png'/>" title="supprimer" alt="supprimer">
                                                 </button></td>
+                                         
+                                                <td>
+                                                <a>
+                                                <button id="${entry.libelle}" type="button" name="telechargerimage">   
+                                                <img src="<c:out value='img/telecharger.png'/>" title="telecharger" alt="telecharger">
+                                                </button>
+                                                </a>
+                                                
+                                                </td>
                                 </tr>
                         </c:forEach>
                 </table>
@@ -78,7 +88,7 @@
                                   
                                         </a>
                                         </td>
-                                        <td><button id="${entry.pathNomFichier}" type='button' class="supprimer">
+                                        <td><button id="${entry.pathNomFichier}" type='button' name="supprimer">
                                                         <img src="<c:out value='img/supprimer.png'/>" title="supprimer" alt="supprimer">
                                                 </button></td>
                                 </tr>

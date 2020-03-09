@@ -238,18 +238,27 @@
     <servlet-name>ProfilPropre</servlet-name>
     <url-pattern>/profilpropre</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description>Download</description>
     <servlet-name>Download</servlet-name>
     <servlet-class>servlets.Download</servlet-class>
     <init-param>
-    <param-name>chemin</param-name>
-    <param-value>/fichiers/</param-value>
+      <param-name>chemin</param-name>
+      <param-value>/fichiers/</param-value>
     </init-param>
-    </servlet>
-    <servlet-mapping>
+  </servlet>
+  <servlet-mapping>
     <servlet-name>Download</servlet-name>
     <url-pattern>/fichiers/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>TelechargementImagesProfil</description>
+    <servlet-name>TelechargementImagesProfil</servlet-name>
+    <servlet-class>servlets.TelechargementImagesProfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TelechargementImagesProfil</servlet-name>
+    <url-pattern>/images/*</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
@@ -289,7 +298,7 @@
     <url-pattern>/Ecrirefichierchannelnio2</url-pattern>
     <url-pattern>/gestionnairedezip</url-pattern>
     <url-pattern>/Gestionnairedezip</url-pattern>
-       <url-pattern>/fichierzipcree</url-pattern>
+    <url-pattern>/fichierzipcree</url-pattern>
     <url-pattern>/Fichierzipcree</url-pattern>
   </filter-mapping>
   <filter>
