@@ -30,8 +30,13 @@ public class ProfilPropre extends HttpServlet {
         ChargerImageProfil chargerImageProfil = new ChargerImageProfil();
         Fichier imageProfil = chargerImageProfil.chargerImageProfil( request );
         Part fichierPhysiqueImageProfil = imageProfil.getFichierPhysique();
-        chargerImageProfil.enregistrerImageProfil( fichierPhysiqueImageProfil,
-                Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_IMAGESPROFIL );
+        try {
+            chargerImageProfil.enregistrerImageProfil( fichierPhysiqueImageProfil,
+                    Repertoires.CONSTANTE_REPERTOIRE_ABSOLU_IMAGESPROFIL );
+        } catch ( Exception e ) {
+            System.out.println( e.getMessage() );
+
+        }
 
         String nomFichierImageProfil = chargerImageProfil.recupererNomFichierImage( fichierPhysiqueImageProfil );
         imageProfil.setNom( nomFichierImageProfil );

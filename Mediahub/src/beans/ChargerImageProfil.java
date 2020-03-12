@@ -6,7 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import javax.servlet.http.Part;
 import constantes.MessagesErreur;
 import constantes.Parametres;
 import constantes.Tampon;
+import eu.medsea.mimeutil.MimeUtil;
 
 public class ChargerImageProfil {
     List<String> erreurs = new ArrayList<String>();
@@ -36,6 +39,7 @@ public class ChargerImageProfil {
             // récupère le fichier
             Part part = request.getPart( Parametres.CONSTANTE_PARAMETRE_FICHIERIMAGE );
             champContientUnFichier( part );
+
             imageProfil.setFichierPhysique( part );
 
         } catch ( IOException | ServletException e ) {
@@ -45,7 +49,9 @@ public class ChargerImageProfil {
 
         catch ( IllegalStateException e ) {
             e.printStackTrace();
-            System.out.println( "Le fichier est trop gros" );
+            erreurs.add( MessagesErreur.CONSTANTE_ERREUR_TAILLE_FICHIER );
+            System.out.println( MessagesErreur.CONSTANTE_ERREUR_TAILLE_FICHIER );
+
         }
 
         return imageProfil;
@@ -65,9 +71,9 @@ public class ChargerImageProfil {
     // l'attribut de la requête
     // à récupérer
 
-    public void champContientUnFichier( Part part ) {
+    private void champContientUnFichier( Part part ) {
 
-        Boolean estUnFichier = null;
+        Boolean estUnFichier = false;
         String enteteRequetePostContentDisposition = part.getHeader( "Content-Disposition" );
 
         for ( String coupleAttributValeur : enteteRequetePostContentDisposition.split( ";" ) ) {
@@ -103,7 +109,7 @@ public class ChargerImageProfil {
 
     }
 
-    public void verifierNomImageUtilisateur( String nomImageUtilisateur ) {
+    private void verifierNomImageUtilisateur( String nomImageUtilisateur ) {
         if ( nomImageUtilisateur.trim().length() <= 3 )
 
         {
@@ -118,15 +124,17 @@ public class ChargerImageProfil {
 
     }
 
-    public void enregistrerImageProfil( Part part, String chemin ) {
+    public void enregistrerImageProfil( Part part, String chemin ) throws Exception {
         /* Prépare les flux. */
 
         String nomFichier = this.recupererNomFichierImage( part );
+
+        validationFormatImage( part );
+
         System.out.println( "Fichier enregistré ici : " + chemin + "/" + nomFichier );
         BufferedInputStream entree = null;
         BufferedOutputStream sortie = null;
         try {
-            /* Ouvre les flux. */
             entree = new BufferedInputStream( part.getInputStream(), Tampon.CONSTANTE_TAILLE_TAMPON_10240 );
 
             sortie = new BufferedOutputStream( new FileOutputStream( new File( chemin + "/" + nomFichier ) ),
@@ -163,6 +171,32 @@ public class ChargerImageProfil {
             } catch ( IOException ignore ) {
             }
         }
+    }
+
+    private void validationFormatImage( Part part ) throws Exception {
+
+        InputStream contenuFichier = null;
+        // recupération du contenu du fichier
+
+        contenuFichier = part.getInputStream();
+
+        /* Extraction du type MIME du fichier depuis l'InputStream */
+        MimeUtil.registerMimeDetector( "eu.medsea.mimeutil.detector.MagicMimeMimeDetector" );
+        // <?> correspond à une collection qui accepte tout type
+        Collection<?> mimeTypes = MimeUtil.getMimeTypes( contenuFichier );
+        System.out.println( mimeTypes );// ex : image/jpeg
+
+        /*
+         * Si le fichier est bien une image, alors son en-tête MIME commence par
+         * la chaîne "image"
+         */
+        if ( !mimeTypes.toString().startsWith( "image" ) ) {
+
+            erreurs.add( MessagesErreur.CONSTANTE_ERREUR_TYPE_FICHIER );
+            throw new Exception( MessagesErreur.CONSTANTE_ERREUR_TYPE_FICHIER );
+
+        }
+
     }
 
 }
