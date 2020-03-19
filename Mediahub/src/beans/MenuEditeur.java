@@ -37,6 +37,8 @@ public class MenuEditeur {
                 Vues.CONSTANTE_VUE_GESTIONNAIREDEZIP_NOMCOURT );
         menuediteur.put( Vues.CONSTANTE_VUE_PROFILPROPRE_DESCRIPTION,
                 Vues.CONSTANTE_VUE_PROFILPROPRE_NOMCOURT );
+        menuediteur.put( Vues.CONSTANTE_VUE_TESTJDBC_DESCRIPTION,
+                Vues.CONSTANTE_VUE_TESTJDBC_NOMCOURT );
 
         return menuediteur;
 

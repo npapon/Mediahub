@@ -260,10 +260,20 @@
     <servlet-name>TelechargementImagesProfil</servlet-name>
     <url-pattern>/images/*</url-pattern>
   </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>GestionTestJDBC</servlet-name>
+    <url-pattern>/testjdbc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>GestionTestJDBC</description>
+    <servlet-name>GestionTestJDBC</servlet-name>
+    <servlet-class>servlets.GestionTestJDBC</servlet-class>
+  </servlet>
   <filter>
     <filter-name>RestrictionFilter</filter-name>
     <filter-class>filters.RestrictionFilter</filter-class>
   </filter>
+  
   <filter-mapping>
     <filter-name>RestrictionFilter</filter-name>
     <url-pattern>/administration</url-pattern>

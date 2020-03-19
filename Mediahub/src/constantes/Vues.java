@@ -72,5 +72,8 @@ public class Vues {
     public static final String CONSTANTE_VUE_PROFILPROPRE                                    = "/WEB-INF/profilpropre.jsp";
     public static final String CONSTANTE_VUE_PROFILPROPRE_NOMCOURT                           = "profilpropre";
     public static final String CONSTANTE_VUE_PROFILPROPRE_DESCRIPTION                        = "Ma page de profil en mieux";
+    public static final String CONSTANTE_VUE_TESTJDBC                                        = "/WEB-INF/testjdbc.jsp";
+    public static final String CONSTANTE_VUE_TESTJDBC_NOMCOURT                               = "testjdbc";
+    public static final String CONSTANTE_VUE_TESTJDBC_DESCRIPTION                            = "test jdbc";
 
 }
