@@ -26,4 +26,5 @@ public class Attributs {
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTIMAGESPROFIL = "dossierrangementimagesprofil";
     public static final String CONSTANTE_ATTRIBUT_DOSSIERRANGEMENTFICHIERSTEXT = "dossierrangementfichierstext";
     public static final String CONSTANTE_ATTRIBUT_TESTJDBCMESSAGES             = "messages";
+    public static final String CONSTANTE_ATTRIBUT_DAOFACTORY                   = "daofactory";
 }

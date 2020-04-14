@@ -1,82 +1,32 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import beans.UtilisateurV2;
+import dao.DAOFactory;
+import dao.UtilisateurDao;
 
 public class Main {
+
     public static void main( String[] args ) {
+        // on a un daoFactory qui a l'url,login mot de passe en param
+        // il a chargé le driver
+        DAOFactory daoFactory = DAOFactory.getInstance();
+        UtilisateurV2 utilisateur = new UtilisateurV2();
 
-        try {
-            Class.forName( "com.mysql.cj.jdbc.Driver" );
-        } catch ( ClassNotFoundException e ) {
-            /* Gérer les éventuelles erreurs ici. */
-            e.printStackTrace();
-        }
+        // on instancie utilisateurDaoImpl avec le daoFactory en paramètre qui a
+        // les méthodes CRUD
+        UtilisateurDao utilisateurDao = daoFactory.getUtilisateurDao();
+        // cette méthode initie la connexion avec les paramètres du dao et
+        // execute une requete type select et retourne un utilisateur
+        utilisateur = utilisateurDao.rechercher( "npapon@live.fr" );
+        System.out.println( "mail recherché  " + utilisateur.getEmail() );
+        utilisateur = new UtilisateurV2();
 
-        /* Connexion à la base de données */
-        String url = "jdbc:mysql://localhost:3306/bdd_mediahub";
-        String utilisateur = "npapon";
-        String motDePasse = "Patapoun123!";
-        Connection connexion = null;
-        Statement statement = null;
-        ResultSet resultat = null;
-        try {
-            connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
+        utilisateur.setEmail( "help14@live.fr" );
+        utilisateur.setLogin( "help14" );
+        utilisateur.setMotDePasse( "caca" );
+        utilisateur.setNom( "help14" );
 
-            statement = connexion.createStatement();
-            resultat = statement.executeQuery( "select * from utilisateur" );
-            while ( resultat.next() ) {
-                int idUtilisateur = resultat.getInt( "id" );
-                String loginUtilisateur = resultat.getString( "login" );
-                String emailUtilisateur = resultat.getString( 3 );
-                System.out.println( idUtilisateur + " " + loginUtilisateur + " " + emailUtilisateur );
+        utilisateurDao.creer( utilisateur );
 
-            }
-
-            int statut = statement.executeUpdate(
-                    "update utilisateur set date_creation =now() ;" );
-
-            System.out.println( statut );
-
-            /* Ici, nous placerons nos requêtes vers la BDD */
-            /* ... */
-
-        } catch ( SQLException e ) {
-            /* Gérer les éventuelles erreurs ici */
-            e.printStackTrace();
-        } finally {
-
-            if ( resultat != null ) {
-                try {
-                    resultat.close();
-                } catch ( SQLException e ) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                if ( statement != null ) {
-                    try {
-                        statement.close();
-                    } catch ( SQLException e ) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    if ( connexion != null )
-                        try {
-                            /* Fermeture de la connexion */
-                            connexion.close();
-                        } catch ( SQLException e ) {
-                            /*
-                             * Si une erreur survient lors de la fermeture, il
-                             * suffit de l'ignorer.
-                             */
-                        }
-
-                }
-
-            }
-        }
+        System.out.println( utilisateur.toString() );
 
     }
-
 }

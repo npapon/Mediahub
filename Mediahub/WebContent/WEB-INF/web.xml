@@ -6,6 +6,9 @@
       <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
+  <listener>
+    <listener-class>config.InitialisationDaoFactory</listener-class>
+  </listener>
   <servlet>
     <description>Connexion</description>
     <servlet-name>Connexion</servlet-name>
@@ -323,4 +326,5 @@
       <param-value>false</param-value>
     </init-param>
   </filter>
+  
 </web-app>
